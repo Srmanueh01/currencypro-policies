@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -66,6 +66,27 @@
         border-radius: 12px;
         border-left: 4px solid #6366f1;
         margin: 24px 0;
+      }
+      .delete-card {
+        background: #eef2ff;
+        padding: 24px;
+        border-radius: 16px;
+        margin: 24px 0;
+        border: 1px solid #6366f1;
+      }
+      .delete-button {
+        display: inline-block;
+        background: #6366f1;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 16px 0 8px;
+        transition: background 0.3s;
+      }
+      .delete-button:hover {
+        background: #4f46e5;
       }
       .footer {
         margin-top: 48px;
@@ -184,8 +205,48 @@
         aplicación.
       </p>
 
+      <!-- 🆕 NUEVA SECCIÓN: ELIMINACIÓN DE DATOS -->
+      <h2 id="eliminar">🗑️ 9. Eliminación de datos</h2>
+      
+      <div class="delete-card">
+        <p style="margin-bottom: 16px;">
+          Aunque Cambiofy no recopila datos personales, los anuncios mostrados por Google AdMob 
+          pueden utilizar identificadores publicitarios anónimos. Si deseas solicitar la eliminación 
+          de los datos asociados a tu dispositivo en los sistemas de Google, puedes hacerlo de las 
+          siguientes maneras:
+        </p>
+        
+        <ul style="margin-bottom: 20px;">
+          <li>
+            <strong>Opción 1 (recomendada):</strong> Ajustes de Google en tu dispositivo Android: 
+            <em>Configuración → Google → Anuncios → Restablecer ID de publicidad / Eliminar ID</em>
+            <br/><span style="font-size: 14px; color: #6b7280;">Esta opción elimina el ID localmente sin necesidad de contacto.</span>
+          </li>
+          <li>
+            <strong>Opción 2:</strong> Contactarnos directamente y trasladaremos tu solicitud a Google:
+          </li>
+        </ul>
+        
+        <div style="text-align: center;">
+          <a href="mailto:scurrencypro@gmail.com?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos%20-%20Cambiofy&body=Por%20favor%2C%20solicito%20la%20eliminaci%C3%B3n%20de%20los%20datos%20asociados%20a%20mi%20dispositivo%20en%20Cambiofy.%0A%0AModelo%20de%20dispositivo%3A%20%0AVersi%C3%B3n%20de%20Android%3A%20%0A" 
+             class="delete-button">
+            📧 Enviar solicitud de eliminación
+          </a>
+          <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">
+            Haz clic para abrir tu programa de correo
+          </p>
+        </div>
+        
+        <p style="margin-top: 20px; margin-bottom: 0;">
+          Una vez recibida tu solicitud, procesaremos tu petición en un plazo máximo de 30 días 
+          y contactaremos con Google AdMob para que eliminen cualquier dato asociado a tu 
+          identificador publicitario. Agradeceremos que incluyas el modelo de tu dispositivo 
+          y versión de Android para ayudarnos a identificar tus datos más rápidamente.
+        </p>
+      </div>
+
       <div class="footer">
-        <p>© 2024 Cambiofy - Conversor de Divisas en Tiempo Real</p>
+        <p>© 2026 Cambiofy - Conversor de Divisas en Tiempo Real</p>
         <p style="margin-top: 8px">
           Desarrollado con ❤️ para una experiencia financiera transparente
         </p>
@@ -193,5 +254,3 @@
     </div>
   </body>
 </html>
-
-
