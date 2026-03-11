@@ -1,388 +1,324 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Términos de Uso / Terms of Use - Cambiofy</title>
+    <title>Términos de Uso - Cambiofy</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+        color: #111827;
+        background: #f9fafb;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        background: white;
+        padding: clamp(20px, 5vw, 40px);
+        border-radius: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      h1 {
+        font-size: clamp(24px, 5vw, 32px);
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #111827;
+        line-height: 1.2;
+      }
+      .badge {
+        display: inline-block;
+        background: #eef2ff;
+        color: #6366f1;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: clamp(12px, 3vw, 14px);
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+      h2 {
+        font-size: clamp(18px, 4vw, 20px);
+        font-weight: 600;
+        margin: 32px 0 12px;
+        color: #111827;
+      }
+      p {
+        margin-bottom: 16px;
+        color: #4b5563;
+        font-size: clamp(14px, 3.5vw, 16px);
+      }
+      ul {
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      li {
+        margin-bottom: 8px;
+        color: #4b5563;
+        font-size: clamp(14px, 3.5vw, 16px);
+      }
+      .highlight {
+        background: #f3f4f6;
+        padding: clamp(16px, 4vw, 20px);
+        border-radius: 12px;
+        border-left: 4px solid #6366f1;
+        margin: 24px 0;
+      }
+      .footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid #e5e7eb;
+        text-align: center;
+        color: #6b7280;
+        font-size: clamp(12px, 3vw, 14px);
+      }
+      a {
+        color: #6366f1;
+        text-decoration: none;
+        word-break: break-word;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .api-card {
+        background: #f9fafb;
+        padding: clamp(16px, 4vw, 20px);
+        border-radius: 12px;
+        margin: 16px 0;
+        border: 1px solid #e5e7eb;
+      }
+      .api-badge {
+        display: inline-block;
+        background: #10b981;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 8px;
+      }
+      .note {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 16px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      @media (max-width: 480px) {
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: #111827;
-            background: #f9fafb;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        .language-selector {
-            display: flex;
-            gap: 12px;
-            justify-content: flex-end;
-            margin-bottom: 24px;
-        }
-        .lang-btn {
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #e5e7eb;
-            background: white;
-            color: #4b5563;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        .lang-btn:hover {
-            background: #f3f4f6;
-            border-color: #6366f1;
-        }
-        .lang-btn.active {
-            background: #6366f1;
-            color: white;
-            border-color: #6366f1;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #111827;
-        }
-        .badge {
-            display: inline-block;
-            background: #eef2ff;
-            color: #6366f1;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-        h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin: 32px 0 12px;
-            color: #111827;
-        }
-        p {
-            margin-bottom: 16px;
-            color: #4b5563;
+          padding: 10px;
         }
         ul {
-            margin-bottom: 16px;
-            padding-left: 24px;
+          padding-left: 20px;
         }
-        li {
-            margin-bottom: 8px;
-            color: #4b5563;
-        }
-        .highlight {
-            background: #f3f4f6;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #6366f1;
-            margin: 24px 0;
-        }
-        .footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid #e5e7eb;
-            text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-        }
-        [lang="en"] {
-            display: none;
-        }
-        body.es [lang="es"] {
-            display: block;
-        }
-        body.es [lang="en"] {
-            display: none;
-        }
-        body.en [lang="es"] {
-            display: none;
-        }
-        body.en [lang="en"] {
-            display: block;
-        }
-        .lang-content {
-            width: 100%;
-        }
+      }
     </style>
-</head>
-<body class="es">
+  </head>
+  <body>
     <div class="container">
-        <!-- Language Selector -->
-        <div class="language-selector">
-            <button class="lang-btn active" onclick="setLanguage('es')">🇪🇸 Español</button>
-            <button class="lang-btn" onclick="setLanguage('en')">🇺🇸 English</button>
-        </div>
+      <h1>Términos de Uso</h1>
+      <span class="badge">⚖️ Cambiofy - Convertidor de Divisas en Tiempo Real</span>
 
-        <!-- CONTENIDO EN ESPAÑOL -->
-        <div lang="es" class="lang-content">
-            <h1>Términos de Uso</h1>
-            <span class="badge">⚖️ Cambiofy - Convertidor de Divisas en Tiempo Real</span>
+      <p><strong>Última actualización:</strong> 11 de marzo de 2026</p>
 
-            <p><strong>Última actualización:</strong> 2 de marzo de 2026</p>
+      <p>
+        Al descargar, instalar o usar Cambiofy ("la Aplicación"), aceptas
+        estos Términos de Uso. Si no estás de acuerdo, por favor no uses la
+        aplicación.
+      </p>
 
-            <p>
-                Al descargar, instalar o usar Cambiofy ("la Aplicación"), aceptas
-                estos Términos de Uso. Si no estás de acuerdo, por favor no uses la
-                aplicación.
-            </p>
+      <h2>📱 1. Licencia de uso</h2>
+      <p>
+        Te otorgamos una licencia limitada, no exclusiva, intransferible y
+        revocable para usar la aplicación en tus dispositivos personales. La
+        aplicación es para uso personal y no comercial.
+      </p>
 
-            <h2>📱 1. Licencia de uso</h2>
-            <p>
-                Te otorgamos una licencia limitada, no exclusiva, intransferible y
-                revocable para usar la aplicación en tus dispositivos personales. La
-                aplicación es para uso personal y no comercial.
-            </p>
+      <h2>💰 2. Gratuidad y publicidad</h2>
+      <p>
+        Cambiofy es una aplicación gratuita. Para mantenerla así, mostramos
+        publicidad de Google AdMob. Los anuncios pueden ser personalizados según
+        tus intereses, pero <strong>no compartimos ningún dato tuyo</strong> con
+        los anunciantes.
+      </p>
 
-            <h2>💰 2. Gratuidad y publicidad</h2>
-            <p>
-                Cambiofy es una aplicación gratuita. Para mantenerla así, mostramos
-                publicidad de Google AdMob. Los anuncios pueden ser personalizados según
-                tus intereses, pero <strong>no compartimos ningún dato tuyo</strong> con
-                los anunciantes.
-            </p>
+      <h2>🔄 3. Precisión de las tasas y gráficos</h2>
+      <p>
+        Las tasas de cambio se obtienen de múltiples fuentes para garantizar la máxima precisión:
+      </p>
 
-            <h2>🔄 3. Precisión de las tasas</h2>
-            <p>
-                Las tasas de cambio se obtienen de:
-            </p>
-            <ul>
-                <li><strong>ExchangeRate-API:</strong> Tasas en tiempo real (actualización horaria)</li>
-                <li><strong>Frankfurter.app:</strong> Tasas diarias del Banco Central Europeo (respaldo)</li>
-            </ul>
-            <p>
-                Hacemos nuestro mejor esfuerzo para que sean precisas, pero:
-            </p>
-            <ul>
-                <li>Pueden tener pequeñas variaciones respecto al mercado interbancario</li>
-                <li>No garantizamos disponibilidad 24/7 de las APIs</li>
-                <li>La app funciona offline con tasas de respaldo</li>
-                <li>El plan gratuito de ExchangeRate-API se actualiza cada hora</li>
-            </ul>
-            <p>
-                <strong>No uses esta aplicación para operaciones financieras críticas.</strong>
-                Es una herramienta de referencia, no una plataforma de trading o inversión.
-            </p>
+      <div class="api-card">
+        <span class="api-badge">PRINCIPAL</span>
+        <strong>Fawazahmed0 Currency API</strong><br/>
+        <a href="https://github.com/fawazahmed0/exchange-api" target="_blank">https://github.com/fawazahmed0/exchange-api</a>
+        <p style="margin-top: 8px;">
+          <strong>¿Cómo funciona?</strong> Esta API de código abierto recopila datos diarios de fuentes financieras 
+          públicas y los sirve mediante archivos JSON estáticos en CDN. Proporciona:
+        </p>
+        <ul>
+          <li>✅ <strong>Más de 150 monedas</strong> - Incluye todas las monedas principales y exóticas</li>
+          <li>✅ <strong>Datos históricos completos</strong> - Desde 2020 hasta la actualidad</li>
+          <li>✅ <strong>Tasas cruzadas precisas</strong> - Para pares poco comunes (ej. FJD/BGN) calculadas mediante USD</li>
+          <li>✅ <strong>Sin límites de peticiones</strong> - Al ser archivos estáticos, no hay restricciones</li>
+          <li>✅ <strong>Actualización diaria</strong> - Datos frescos cada día</li>
+        </ul>
+        <p style="font-size: 14px; background: #eef2ff; padding: 8px; border-radius: 8px; margin-top: 8px;">
+          📈 Los gráficos de evolución de 30 días se generan con datos reales de esta API.
+        </p>
+      </div>
 
-            <h2>⛔ 4. Uso aceptable</h2>
-            <p>No puedes:</p>
-            <ul>
-                <li>Modificar, descompilar o hacer ingeniería inversa de la app</li>
-                <li>Usar la app para actividades ilegales</li>
-                <li>Distribuir copias de la app sin autorización</li>
-                <li>Eliminar atribuciones de derechos de autor</li>
-                <li>Realizar scraping o consultas automatizadas excesivas a las APIs</li>
-            </ul>
+      <div class="api-card">
+        <span class="api-badge">RESPALDO</span>
+        <strong>ExchangeRate-API</strong><br/>
+        <a href="https://www.exchangerate-api.com" target="_blank">https://www.exchangerate-api.com</a>
+        <p style="margin-top: 8px;">
+          Tasas en tiempo real con actualización horaria. Utilizada como fuente secundaria para validación.
+        </p>
+      </div>
 
-            <h2>🛡️ 5. Exención de responsabilidad</h2>
-            <p>
-                La aplicación se proporciona "tal cual", sin garantías de ningún tipo.
-                No nos responsabilizamos por:
-            </p>
-            <ul>
-                <li>Pérdidas financieras por decisiones basadas en las tasas mostradas</li>
-                <li>Interrupciones temporales del servicio</li>
-                <li>Contenido de anuncios de terceros</li>
-                <li>Daños directos o indirectos derivados del uso de la app</li>
-                <li>Errores en las APIs de terceros</li>
-            </ul>
+      <div class="api-card">
+        <span class="api-badge">HISTÓRICO</span>
+        <strong>Frankfurter.app</strong><br/>
+        <a href="https://www.frankfurter.app" target="_blank">https://www.frankfurter.app</a>
+        <p style="margin-top: 8px;">
+          API pública del Banco Central Europeo con datos históricos para 33 monedas principales.
+        </p>
+      </div>
 
-            <h2>🔗 6. Servicios de terceros</h2>
-            <p>La app utiliza:</p>
-            <ul>
-                <li>
-                    <strong>ExchangeRate-API</strong> - 
-                    <a href="https://www.exchangerate-api.com/terms" target="_blank">Términos de servicio</a>
-                </li>
-                <li>
-                    <strong>Frankfurter.app</strong> - 
-                    <a href="https://www.frankfurter.app" target="_blank">API pública</a>
-                </li>
-                <li>
-                    <strong>Google AdMob</strong> - 
-                    <a href="https://developers.google.com/admob/terms" target="_blank">Términos de AdMob</a>
-                </li>
-            </ul>
-            <p>
-                No tenemos control sobre la disponibilidad, precisión o políticas de estos servicios.
-            </p>
+      <div class="note">
+        <strong>📊 Sobre la precisión de los datos:</strong>
+        <p style="margin-top: 8px; margin-bottom: 0;">
+          Para pares de monedas poco comunes (como Dólar de Fiyi a Lev búlgaro), las tasas se calculan 
+          mediante el método de "tasa cruzada" utilizando el dólar estadounidense como referencia. 
+          Este es el mismo método que utilizan los bancos y casas de cambio para cotizaciones de pares exóticos, 
+          por lo que los valores son matemáticamente precisos y consistentes con el mercado.
+        </p>
+      </div>
 
-            <h2>📞 7. Contacto</h2>
-            <p>Para preguntas sobre estos términos:</p>
-            <ul>
-                <li>📧 <strong>support-app@cambiofy.com</strong></li>
-                <li>⏱️ Respondemos en máximo 48 horas hábiles</li>
-            </ul>
+      <p>
+        Hacemos nuestro mejor esfuerzo para que las tasas sean precisas, pero:
+      </p>
+      <ul>
+        <li>Pueden tener pequeñas variaciones respecto al mercado interbancario</li>
+        <li>No garantizamos disponibilidad 24/7 de las APIs</li>
+        <li>La app funciona offline con tasas de respaldo y datos en caché</li>
+        <li>Los gráficos históricos se actualizan diariamente</li>
+      </ul>
+      <p>
+        <strong
+          >No uses esta aplicación para operaciones financieras
+          críticas.</strong
+        >
+        Es una herramienta de referencia, no una plataforma de trading o
+        inversión.
+      </p>
 
-            <h2>📅 8. Modificaciones</h2>
-            <p>
-                Podemos actualizar estos términos ocasionalmente. La versión actualizada
-                estará disponible en esta misma URL. El uso continuado de la app implica
-                la aceptación de los nuevos términos.
-            </p>
+      <h2>📊 4. Funcionalidad de gráficos</h2>
+      <p>
+        La aplicación incluye gráficos de evolución de 30 días para todos los pares de monedas.
+        Estos gráficos se generan con:
+      </p>
+      <ul>
+        <li>Datos históricos reales de Fawazahmed0 API</li>
+        <li>Caché local de 7 días para reducir consultas</li>
+        <li>Más de 30 puntos de datos (uno por día)</li>
+        <li>Estadísticas de tendencia (mínimo, máximo, promedio)</li>
+      </ul>
+      <p>
+        Los gráficos están disponibles para TODAS las combinaciones de monedas, incluyendo pares exóticos,
+        gracias al sistema de tasas cruzadas.
+      </p>
 
-            <div class="highlight">
-                <p style="margin-bottom: 0; font-weight: 500">
-                    ✨ Cambiofy: Tasas de cambio en tiempo real, sin complicaciones y respetando tu privacidad.
-                </p>
-            </div>
-        </div>
+      <h2>⛔ 5. Uso aceptable</h2>
+      <p>No puedes:</p>
+      <ul>
+        <li>Modificar, descompilar o hacer ingeniería inversa de la app</li>
+        <li>Usar la app para actividades ilegales</li>
+        <li>Distribuir copias de la app sin autorización</li>
+        <li>Eliminar atribuciones de derechos de autor</li>
+        <li>Realizar scraping o consultas automatizadas excesivas a las APIs</li>
+      </ul>
 
-        <!-- CONTENIDO EN INGLÉS -->
-        <div lang="en" class="lang-content">
-            <h1>Terms of Use</h1>
-            <span class="badge">⚖️ Cambiofy - Real-time Currency Converter</span>
+      <h2>🛡️ 6. Exención de responsabilidad</h2>
+      <p>
+        La aplicación se proporciona "tal cual", sin garantías de ningún tipo.
+        No nos responsabilizamos por:
+      </p>
+      <ul>
+        <li>
+          Pérdidas financieras por decisiones basadas en las tasas mostradas
+        </li>
+        <li>Interrupciones temporales del servicio</li>
+        <li>Contenido de anuncios de terceros</li>
+        <li>Daños directos o indirectos derivados del uso de la app</li>
+        <li>Errores en las APIs de terceros</li>
+      </ul>
 
-            <p><strong>Last updated:</strong> March 2, 2026</p>
+      <h2>🔗 7. Servicios de terceros</h2>
+      <p>La app utiliza:</p>
+      <ul>
+        <li>
+          <strong>Fawazahmed0 Currency API</strong> - 
+          <a href="https://github.com/fawazahmed0/exchange-api" target="_blank">Código abierto (MIT License)</a>
+        </li>
+        <li>
+          <strong>ExchangeRate-API</strong> - 
+          <a href="https://www.exchangerate-api.com/terms" target="_blank">Términos de servicio</a>
+        </li>
+        <li>
+          <strong>Frankfurter.app</strong> - 
+          <a href="https://www.frankfurter.app" target="_blank">API pública</a>
+        </li>
+        <li>
+          <strong>Google AdMob</strong> - 
+          <a href="https://developers.google.com/admob/terms" target="_blank">Términos de AdMob</a>
+        </li>
+      </ul>
+      <p>
+        No tenemos control sobre la disponibilidad, precisión o políticas de
+        estos servicios.
+      </p>
 
-            <p>
-                By downloading, installing, or using Cambiofy ("the Application"), you agree to these Terms of Use. 
-                If you do not agree, please do not use the application.
-            </p>
+      <h2>📞 8. Contacto</h2>
+      <p>Para preguntas sobre estos términos:</p>
+      <ul>
+        <li>📧 <strong>scurrencypro@gmail.com</strong></li>
+        <li>⏱️ Respondemos en máximo 48 horas hábiles</li>
+      </ul>
 
-            <h2>📱 1. License to use</h2>
-            <p>
-                We grant you a limited, non-exclusive, non-transferable, and revocable license to use the application 
-                on your personal devices. The app is for personal, non-commercial use.
-            </p>
+      <h2>📅 9. Modificaciones</h2>
+      <p>
+        Podemos actualizar estos términos ocasionalmente. La versión actualizada
+        estará disponible en esta misma URL. El uso continuado de la app implica
+        la aceptación de los nuevos términos.
+      </p>
 
-            <h2>💰 2. Free nature and advertising</h2>
-            <p>
-                Cambiofy is a free application. To keep it free, we display ads from Google AdMob. Ads may be 
-                personalized based on your interests, but <strong>we do not share any of your data</strong> with advertisers.
-            </p>
+      <div class="highlight">
+        <p style="margin-bottom: 0; font-weight: 500">
+          ✨ Cambiofy: Tasas de cambio en tiempo real, gráficos históricos precisos y respeto total por tu privacidad.
+        </p>
+      </div>
 
-            <h2>🔄 3. Accuracy of rates</h2>
-            <p>
-                Exchange rates are obtained from:
-            </p>
-            <ul>
-                <li><strong>ExchangeRate-API:</strong> Real-time rates (hourly updates)</li>
-                <li><strong>Frankfurter.app:</strong> Daily rates from the European Central Bank (backup)</li>
-            </ul>
-            <p>
-                We do our best to ensure accuracy, but:
-            </p>
-            <ul>
-                <li>Rates may have small variations from interbank market rates</li>
-                <li>We do not guarantee 24/7 API availability</li>
-                <li>The app works offline with backup rates</li>
-                <li>The free ExchangeRate-API plan updates hourly</li>
-            </ul>
-            <p>
-                <strong>Do not use this app for critical financial operations.</strong> It is a reference tool, 
-                not a trading or investment platform.
-            </p>
-
-            <h2>⛔ 4. Acceptable use</h2>
-            <p>You may not:</p>
-            <ul>
-                <li>Modify, decompile, or reverse engineer the app</li>
-                <li>Use the app for illegal activities</li>
-                <li>Distribute copies of the app without authorization</li>
-                <li>Remove copyright attributions</li>
-                <li>Perform scraping or excessive automated queries to the APIs</li>
-            </ul>
-
-            <h2>🛡️ 5. Disclaimer</h2>
-            <p>
-                The app is provided "as is", without warranties of any kind. We are not responsible for:
-            </p>
-            <ul>
-                <li>Financial losses from decisions based on displayed rates</li>
-                <li>Temporary service interruptions</li>
-                <li>Third-party ad content</li>
-                <li>Direct or indirect damages from app usage</li>
-                <li>Errors in third-party APIs</li>
-            </ul>
-
-            <h2>🔗 6. Third-party services</h2>
-            <p>The app uses:</p>
-            <ul>
-                <li>
-                    <strong>ExchangeRate-API</strong> - 
-                    <a href="https://www.exchangerate-api.com/terms" target="_blank">Terms of service</a>
-                </li>
-                <li>
-                    <strong>Frankfurter.app</strong> - 
-                    <a href="https://www.frankfurter.app" target="_blank">Public API</a>
-                </li>
-                <li>
-                    <strong>Google AdMob</strong> - 
-                    <a href="https://developers.google.com/admob/terms" target="_blank">AdMob Terms</a>
-                </li>
-            </ul>
-            <p>
-                We have no control over the availability, accuracy, or policies of these services.
-            </p>
-
-            <h2>📞 7. Contact</h2>
-            <p>For questions about these terms:</p>
-            <ul>
-                <li>📧 <strong>support-app@cambiofy.com</strong></li>
-                <li>⏱️ We respond within 48 business hours maximum</li>
-            </ul>
-
-            <h2>📅 8. Modifications</h2>
-            <p>
-                We may update these terms occasionally. The updated version will be available at this same URL. 
-                Continued use of the app implies acceptance of the new terms.
-            </p>
-
-            <div class="highlight">
-                <p style="margin-bottom: 0; font-weight: 500">
-                    ✨ Cambiofy: Real-time exchange rates, no complications, and respecting your privacy.
-                </p>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>© 2026 Cambiofy - Todos los derechos reservados / All rights reserved</p>
-            <p style="margin-top: 8px">Transparencia y precisión / Transparency and accuracy 🔍</p>
-        </div>
+      <div class="footer">
+        <p>© 2026 Cambiofy - Todos los derechos reservados</p>
+        <p style="margin-top: 8px">
+          Datos: Fawazahmed0 API (código abierto) • ExchangeRate-API • Frankfurter.app
+        </p>
+        <p style="margin-top: 8px">
+          Transparencia, precisión y privacidad 🔍
+        </p>
+      </div>
     </div>
-
-    <script>
-        function setLanguage(lang) {
-            // Cambiar la clase del body
-            document.body.className = lang;
-            
-            // Actualizar botones activos
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => {
-                if (btn.textContent.includes(lang === 'es' ? 'Español' : 'English')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Guardar preferencia en localStorage
-            localStorage.setItem('preferredLanguage', lang);
-        }
-        
-        // Cargar idioma preferido al iniciar
-        window.onload = function() {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang) {
-                setLanguage(savedLang);
-            }
-        };
-    </script>
-</body>
+  </body>
 </html>
-
