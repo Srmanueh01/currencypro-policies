@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -31,12 +31,24 @@
         border-radius: 24px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       }
+      .header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .title-section {
+        flex: 1;
+        min-width: 250px;
+      }
       h1 {
         font-size: clamp(24px, 5vw, 32px);
         font-weight: 700;
-        margin-bottom: 8px;
         color: #111827;
         line-height: 1.2;
+        margin-bottom: 8px;
       }
       .badge {
         display: inline-block;
@@ -46,20 +58,64 @@
         border-radius: 20px;
         font-size: clamp(12px, 3vw, 14px);
         font-weight: 600;
-        margin-bottom: 24px;
+      }
+      .language-selector {
+        display: flex;
+        gap: 8px;
+        background: #f3f4f6;
+        padding: 4px;
+        border-radius: 40px;
+        border: 1px solid #e5e7eb;
+      }
+      .lang-btn {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: transparent;
+        color: #6b7280;
+      }
+      .lang-btn.active {
+        background: #6366f1;
+        color: white;
+        box-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
+      }
+      .lang-btn:hover:not(.active) {
+        background: #e5e7eb;
+      }
+      .last-updated {
+        margin: 24px 0;
+        padding: 12px 16px;
+        background: #f9fafb;
+        border-radius: 12px;
+        font-size: 14px;
+        color: #6b7280;
+        border: 1px solid #e5e7eb;
       }
       h2 {
         font-size: clamp(18px, 4vw, 20px);
         font-weight: 600;
-        margin: 32px 0 12px;
+        margin: 32px 0 16px;
         color: #111827;
+        border-bottom: 2px solid #eef2ff;
+        padding-bottom: 8px;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 20px 0 10px;
+        color: #374151;
       }
       p {
         margin-bottom: 16px;
         color: #4b5563;
         font-size: clamp(14px, 3.5vw, 16px);
       }
-      ul {
+      ul,
+      ol {
         margin-bottom: 16px;
         padding-left: 24px;
       }
@@ -75,52 +131,17 @@
         border-left: 4px solid #6366f1;
         margin: 24px 0;
       }
-      .delete-card {
-        background: #eef2ff;
-        padding: clamp(20px, 5vw, 24px);
-        border-radius: 16px;
-        margin: 24px 0;
-        border: 1px solid #6366f1;
-      }
-      .delete-button {
-        display: inline-block;
-        background: #6366f1;
-        color: white;
-        padding: clamp(10px, 3vw, 12px) clamp(20px, 5vw, 24px);
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 600;
-        margin: 16px 0 8px;
-        transition: background 0.3s;
-        font-size: clamp(14px, 3.5vw, 16px);
-        text-align: center;
-        width: fit-content;
-      }
-      .delete-button:hover {
-        background: #4f46e5;
-      }
-      .footer {
-        margin-top: 48px;
-        padding-top: 24px;
-        border-top: 1px solid #e5e7eb;
-        text-align: center;
-        color: #6b7280;
-        font-size: clamp(12px, 3vw, 14px);
-      }
-      a {
-        color: #6366f1;
-        text-decoration: none;
-        word-break: break-word;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
       .api-card {
         background: #f9fafb;
         padding: clamp(16px, 4vw, 20px);
         border-radius: 12px;
         margin: 16px 0;
         border: 1px solid #e5e7eb;
+        transition: transform 0.2s;
+      }
+      .api-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       }
       .api-badge {
         display: inline-block;
@@ -132,199 +153,971 @@
         font-weight: 600;
         margin-right: 8px;
       }
+      .contact-box {
+        background: linear-gradient(135deg, #63637b 0%, #a5a5a5 100%);
+        padding: 32px;
+        border-radius: 20px;
+        margin: 32px 0;
+        color: white;
+        text-align: center;
+      }
+      .contact-email {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 20px 0 10px;
+        word-break: break-all;
+      }
+      .contact-email a {
+        color: white;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 4px;
+      }
+      .contact-email a:hover {
+        border-bottom-color: white;
+      }
+      .footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 2px solid #eef2ff;
+        text-align: center;
+        color: #6b7280;
+        font-size: clamp(12px, 3vw, 14px);
+      }
+      .footer p {
+        margin-bottom: 8px;
+        color: #6b7280;
+      }
+      a {
+        color: #6366f1;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .note {
+        background: #fff7ed;
+        border-left: 4px solid #f97316;
+        padding: 16px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      .info-box {
+        background: #eef2ff;
+        padding: 16px;
+        border-radius: 12px;
+        margin: 16px 0;
+        border: 1px solid #6366f1;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #e5e7eb;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background: #f9fafb;
+        font-weight: 600;
+      }
+      .badge-green {
+        background: #10b981;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        margin-left: 8px;
+      }
       @media (max-width: 480px) {
         body {
           padding: 10px;
         }
-        ul {
+        ul,
+        ol {
           padding-left: 20px;
+        }
+        .contact-email {
+          font-size: 18px;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Política de Privacidad</h1>
-      <span class="badge">📱 Cambiofy - Convertidor de Divisas</span>
-
-      <p><strong>Última actualización:</strong> 11 de marzo de 2026</p>
-
-      <div class="highlight">
-        <p style="margin-bottom: 0; font-weight: 500">
-          ✨ Esta aplicación NO recopila tus datos personales. Tu privacidad
-          está protegida por diseño.
-        </p>
-      </div>
-
-      <h2>📊 1. Información que recopilamos</h2>
-      <p>
-        <strong>NINGUNA.</strong> Cambiofy no recopila, almacena, comparte ni
-        vende ningún tipo de información personal. No solicitamos nombre,
-        correo, ubicación ni ningún dato identificable.
-      </p>
-
-      <h2>📱 2. Permisos de la aplicación</h2>
-      <p>La app solicita únicamente:</p>
-      <ul>
-        <li>
-          <strong>Internet:</strong> Para obtener tasas de cambio actualizadas
-          desde APIs públicas.
-        </li>
-        <li>
-          <strong>Estado de red:</strong> Para detectar si tienes conexión y
-          mostrar el modo offline.
-        </li>
-      </ul>
-      <p>
-        No solicitamos acceso a contactos, cámara, galería, micrófono, ubicación
-        ni archivos.
-      </p>
-
-      <h2>🌐 3. APIs de terceros</h2>
-      <p>La aplicación obtiene tasas de cambio de las siguientes fuentes:</p>
-
-      <div class="api-card">
-        <span class="api-badge">PRINCIPAL</span>
-        <strong>Fawazahmed0 Currency API</strong><br/>
-        <a href="https://github.com/fawazahmed0/exchange-api" target="_blank">https://github.com/fawazahmed0/exchange-api</a>
-        <p style="margin-top: 8px;">
-          API de código abierto que recopila datos diarios de fuentes financieras públicas.
-          <strong>Ventajas:</strong> Gratuita, sin límites de peticiones, soporta más de 150 monedas,
-          datos históricos desde 2020, y funciona mediante archivos estáticos en CDN.
-        </p>
-        <p style="font-size: 14px; background: #eef2ff; padding: 8px; border-radius: 8px;">
-          📊 Esta API proporciona datos históricos para TODAS las monedas (incluso pares exóticos)
-          mediante tasas cruzadas calculadas a partir del dólar estadounidense.
-        </p>
-      </div>
-
-      <div class="api-card">
-        <span class="api-badge">RESPALDO</span>
-        <strong>ExchangeRate-API</strong><br/>
-        <a href="https://www.exchangerate-api.com" target="_blank">https://www.exchangerate-api.com</a>
-        <p style="margin-top: 8px;">
-          Servicio de tasas de cambio en tiempo real con actualización horaria en plan gratuito.
-          Se utiliza como fuente secundaria cuando es necesario.
-        </p>
-      </div>
-
-      <div class="api-card">
-        <span class="api-badge">HISTÓRICO</span>
-        <strong>Frankfurter.app</strong><br/>
-        <a href="https://www.frankfurter.app" target="_blank">https://www.frankfurter.app</a>
-        <p style="margin-top: 8px;">
-          API pública de respaldo con tasas diarias del Banco Central Europeo.
-          Proporciona datos históricos para las 33 monedas principales.
-        </p>
-      </div>
-
-      <p>
-        <strong>¿Cómo funcionan los datos?</strong> La API de Fawazahmed0 obtiene tasas base de fuentes oficiales
-        y calcula tasas cruzadas para pares poco comunes (como FJD/BGN) usando el dólar estadounidense como referencia.
-        Esto garantiza que todas las combinaciones de monedas tengan datos consistentes y precisos.
-      </p>
-
-      <p>
-        Estos servicios tienen sus propias políticas de privacidad. No
-        compartimos información tuya con ellos, solo realizamos consultas de
-        tasas públicas.
-      </p>
-
-      <h2>🎯 4. Publicidad</h2>
-      <p>
-        Cambiofy puede mostrar anuncios de Google AdMob para mantener la aplicación gratuita.
-        Estos anuncios pueden ser personalizados según tus intereses, pero
-        <strong>nosotros no compartimos ningún dato tuyo</strong> con Google.
-        Google puede utilizar identificadores publicitarios para mostrar anuncios relevantes.
-      </p>
-      <p>
-        Para más información, consulta la
-        <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidad de Google</a>.
-      </p>
-
-      <h2>💾 5. Datos locales</h2>
-      <p>La app guarda localmente en tu dispositivo:</p>
-      <ul>
-        <li>Tus preferencias (moneda por defecto, modo oscuro, decimales)</li>
-        <li>Favoritos y conversiones recientes</li>
-        <li>Tasas de cambio en caché para funcionar sin conexión</li>
-        <li>Datos históricos de gráficos (7 días de caché)</li>
-      </ul>
-      <p>Estos datos NUNCA salen de tu dispositivo.</p>
-
-      <h2>👤 6. Tus derechos</h2>
-      <p>
-        Como no recopilamos datos personales, no hay información que puedas solicitar. 
-        Pero si tienes preguntas sobre la app:
-      </p>
-      <ul>
-        <li>✅ Derecho a estar informado - Esta política te informa</li>
-        <li>✅ Derecho a la privacidad por defecto - La app está diseñada sin recopilación</li>
-        <li>📧 Contacto: <strong>scurrencypro@gmail.com</strong></li>
-      </ul>
-
-      <h2>🔒 7. Seguridad</h2>
-      <p>
-        Al no recopilar datos, no existen riesgos de filtraciones de información personal. 
-        Todas las comunicaciones con las APIs se realizan mediante HTTPS.
-      </p>
-
-      <h2>📋 8. Cambios en esta política</h2>
-      <p>
-        Si en el futuro la app cambiara y empezara a recopilar datos,
-        actualizaremos esta política y te informaremos claramente dentro de la
-        aplicación.
-      </p>
-
-      <!-- SECCIÓN: ELIMINACIÓN DE DATOS -->
-      <h2 id="eliminar">🗑️ 9. Eliminación de datos</h2>
-      
-      <div class="delete-card">
-        <p style="margin-bottom: 16px;">
-          Aunque Cambiofy no recopila datos personales, los anuncios mostrados por Google AdMob 
-          pueden utilizar identificadores publicitarios anónimos. Si deseas solicitar la eliminación 
-          de los datos asociados a tu dispositivo en los sistemas de Google, puedes hacerlo de las 
-          siguientes maneras:
-        </p>
-        
-        <ul style="margin-bottom: 20px;">
-          <li>
-            <strong>Opción 1 (recomendada):</strong> Ajustes de Google en tu dispositivo Android: 
-            <em>Configuración → Google → Anuncios → Restablecer ID de publicidad / Eliminar ID</em>
-            <br/><span style="font-size: 14px; color: #6b7280;">Esta opción elimina el ID localmente sin necesidad de contacto.</span>
-          </li>
-          <li>
-            <strong>Opción 2:</strong> Contactarnos directamente y trasladaremos tu solicitud a Google:
-          </li>
-        </ul>
-        
-        <div style="text-align: center;">
-          <a href="mailto:scurrencypro@gmail.com?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos%20-%20Cambiofy&body=Por%20favor%2C%20solicito%20la%20eliminaci%C3%B3n%20de%20los%20datos%20asociados%20a%20mi%20dispositivo%20en%20Cambiofy.%0A%0AModelo%20de%20dispositivo%3A%20%0AVersi%C3%B3n%20de%20Android%3A%20%0A" 
-             class="delete-button">
-            📧 Enviar solicitud de eliminación
-          </a>
-          <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">
-            Haz clic para abrir tu programa de correo
-          </p>
+      <!-- Header con selector de idioma -->
+      <div class="header">
+        <div class="title-section">
+          <h1 id="page-title">Política de Privacidad</h1>
+          <span class="badge" id="page-badge"
+            >🔒 Cambiofy - Convertidor de Divisas</span
+          >
         </div>
-        
-        <p style="margin-top: 20px; margin-bottom: 0;">
-          Una vez recibida tu solicitud, procesaremos tu petición en un plazo máximo de 30 días 
-          y contactaremos con Google AdMob para que eliminen cualquier dato asociado a tu 
-          identificador publicitario. Agradeceremos que incluyas el modelo de tu dispositivo 
-          y versión de Android para ayudarnos a identificar tus datos más rápidamente.
+        <div class="language-selector">
+          <button
+            class="lang-btn active"
+            onclick="setLanguage('es')"
+            id="btn-es"
+          >
+            ES
+          </button>
+          <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+            EN
+          </button>
+        </div>
+      </div>
+
+      <div class="last-updated" id="last-updated">
+        <strong>📅 Última actualización:</strong> 11 de marzo de 2026
+      </div>
+
+      <div class="highlight" id="intro-text">
+        <p style="margin-bottom: 0; font-weight: 500">
+          En Cambiofy, tu privacidad es nuestra prioridad. Esta política explica
+          qué información recopilamos, cómo la usamos y qué derechos tienes
+          sobre tus datos.
         </p>
       </div>
+
+      <h2 id="section1-title">1. INFORMACIÓN QUE RECOPILAMOS</h2>
+
+      <h3 id="section1-1-title">1.1. No recopilamos datos personales</h3>
+      <p id="section1-1-text">
+        <strong
+          >Cambiofy NO recopila, almacena, comparte ni vende ningún tipo de
+          información personal identificable.</strong
+        >
+        Esto incluye, de forma enunciativa pero no limitativa:
+      </p>
+      <ul id="section1-1-list">
+        <li>Nombre, email, número de teléfono o dirección física</li>
+        <li>Datos de ubicación geográfica (GPS o dirección IP)</li>
+        <li>Datos biométricos o de salud</li>
+        <li>Información financiera sensible</li>
+        <li>Contactos, fotos, archivos o contenido del dispositivo</li>
+      </ul>
+
+      <h3 id="section1-2-title">1.2. Datos de uso anónimos</h3>
+      <p id="section1-2-text">
+        La aplicación puede recopilar datos de uso anónimos y no identificables
+        para mejorar la experiencia del usuario, tales como:
+      </p>
+      <ul id="section1-2-list">
+        <li>Interacción con las funcionalidades de la app</li>
+        <li>
+          Preferencias seleccionadas (moneda por defecto, modo oscuro,
+          decimales)
+        </li>
+        <li>Rendimiento y estabilidad de la aplicación</li>
+      </ul>
+      <p id="section1-2-note">
+        <em
+          >Estos datos son completamente anónimos y no pueden asociarse a un
+          usuario específico.</em
+        >
+      </p>
+
+      <h2 id="section2-title">2. PERMISOS DE LA APLICACIÓN</h2>
+      <p id="section2-text">
+        Cambiofy solicita únicamente los permisos estrictamente necesarios para
+        su funcionamiento:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th id="table-permission">Permiso</th>
+            <th id="table-purpose">Propósito</th>
+            <th id="table-required">¿Obligatorio?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Internet</strong></td>
+            <td id="perm-internet">
+              Obtener tasas de cambio actualizadas desde APIs públicas
+            </td>
+            <td><span class="badge-green" id="yes">SÍ</span></td>
+          </tr>
+          <tr>
+            <td><strong>Estado de red</strong></td>
+            <td id="perm-network">
+              Detectar conexión y activar modo offline automáticamente
+            </td>
+            <td><span class="badge-green" id="yes2">SÍ</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p id="section2-note">
+        <strong>Importante:</strong> No solicitamos acceso a contactos, cámara,
+        galería, micrófono, ubicación, archivos ni ningún otro permiso sensible.
+      </p>
+
+      <h2 id="section3-title">3. DATOS LOCALES Y ALMACENAMIENTO</h2>
+      <p id="section3-text">
+        La aplicación almacena exclusivamente en tu dispositivo (almacenamiento
+        local) la siguiente información:
+      </p>
+
+      <ul id="section3-list">
+        <li>
+          <strong>Preferencias de usuario:</strong> Moneda por defecto, modo
+          oscuro, número de decimales
+        </li>
+        <li>
+          <strong>Favoritos:</strong> Lista de monedas marcadas como favoritas
+        </li>
+        <li>
+          <strong>Conversiones recientes:</strong> Últimas 5 conversiones
+          realizadas
+        </li>
+        <li>
+          <strong>Caché de tasas:</strong> Tasas de cambio guardadas para
+          funcionamiento offline
+        </li>
+        <li>
+          <strong>Datos históricos:</strong> Caché de 7 días de gráficos para
+          reducir consultas a APIs
+        </li>
+      </ul>
+
+      <div class="info-box" id="section3-note">
+        <p style="margin-bottom: 0">
+          <strong>🔒 Estos datos NUNCA salen de tu dispositivo.</strong> Puedes
+          eliminarlos en cualquier momento desde los ajustes de la aplicación o
+          borrando los datos de la app en Android (Ajustes → Aplicaciones →
+          Cambiofy → Almacenamiento → Borrar datos).
+        </p>
+      </div>
+
+      <h2 id="section4-title">4. APIs DE TERCEROS (FUENTES DE DATOS)</h2>
+      <p id="section4-text">
+        Para ofrecer tasas de cambio precisas y actualizadas, Cambiofy consulta
+        las siguientes APIs públicas.
+        <strong>No compartimos ningún dato tuyo con estos servicios</strong>,
+        solo realizamos consultas anónimas de tasas.
+      </p>
+
+      <div class="api-card">
+        <span class="api-badge" id="badge-primary">PRINCIPAL</span>
+        <strong>Fawazahmed0 Currency API</strong><br />
+        <a href="https://github.com/fawazahmed0/exchange-api" target="_blank"
+          >github.com/fawazahmed0/exchange-api</a
+        >
+        <p style="margin-top: 8px" id="fawazahmed-desc">
+          API de código abierto que recopila datos diarios de fuentes
+          financieras públicas. Proporciona más de 150 monedas y datos
+          históricos desde 2020. <strong>Ventajas:</strong> gratuita, sin
+          límites de peticiones, datos históricos completos.
+        </p>
+        <p
+          style="
+            font-size: 13px;
+            background: #eef2ff;
+            padding: 8px;
+            border-radius: 8px;
+            margin-top: 8px;
+          "
+          id="fawazahmed-note"
+        >
+          📊 Utilizada para tasas actuales y gráficos históricos de 30 días.
+        </p>
+      </div>
+
+      <div class="api-card">
+        <span class="api-badge" id="badge-secondary">RESPALDO</span>
+        <strong>ExchangeRate-API</strong><br />
+        <a href="https://www.exchangerate-api.com" target="_blank"
+          >exchangerate-api.com</a
+        >
+        <p style="margin-top: 8px" id="exchangerate-desc">
+          Servicio de tasas en tiempo real con actualización horaria (plan
+          gratuito). Utilizado como fuente secundaria de respaldo.
+        </p>
+        <p style="font-size: 13px">
+          <a href="https://www.exchangerate-api.com/privacy" target="_blank"
+            >Política de Privacidad</a
+          >
+          |
+          <a href="https://www.exchangerate-api.com/terms" target="_blank"
+            >Términos</a
+          >
+        </p>
+      </div>
+
+      <div class="api-card">
+        <span class="api-badge" id="badge-historical">HISTÓRICO</span>
+        <strong>Frankfurter.app</strong><br />
+        <a href="https://www.frankfurter.app" target="_blank"
+          >frankfurter.app</a
+        >
+        <p style="margin-top: 8px" id="frankfurter-desc">
+          API pública del Banco Central Europeo con datos históricos para las 33
+          monedas principales. Fuente adicional para validación de datos.
+        </p>
+      </div>
+
+      <div class="note" id="api-note">
+        <p style="margin-bottom: 0">
+          <strong>📌 Sobre la precisión de los datos:</strong> Las tasas de
+          cambio pueden tener pequeñas variaciones respecto al mercado
+          interbancario. Para pares de monedas poco comunes (ej. FJD/BGN), las
+          tasas se calculan mediante el método de "tasa cruzada" utilizando el
+          USD como referencia, método estándar en el sector financiero.
+        </p>
+      </div>
+
+      <h2 id="section5-title">5. PUBLICIDAD (GOOGLE ADMOB)</h2>
+      <p id="section5-text">
+        Cambiofy es una aplicación gratuita y se financia mediante publicidad de
+        Google AdMob. Al utilizar la aplicación:
+      </p>
+
+      <ul id="section5-list">
+        <li>
+          <strong>Identificadores publicitarios:</strong> Google puede utilizar
+          el ID de publicidad de tu dispositivo (AAID) para mostrar anuncios
+          personalizados. Este identificador es anónimo y puedes restablecerlo o
+          limitar su uso.
+        </li>
+        <li>
+          <strong>No compartimos datos:</strong> Nosotros no compartimos ningún
+          dato personal tuyo con Google ni con anunciantes. Google recopila la
+          información según su propia política de privacidad.
+        </li>
+        <li>
+          <strong>Cómo desactivar la personalización:</strong> Puedes optar por
+          no recibir anuncios personalizados desde los ajustes de tu dispositivo
+          Android:
+          <em
+            >Ajustes → Google → Anuncios → Desactivar personalización de
+            anuncios</em
+          >.
+        </li>
+        <li>
+          <strong>Más información:</strong> Consulta la
+          <a href="https://policies.google.com/privacy" target="_blank"
+            >Política de Privacidad de Google</a
+          >
+          y los
+          <a href="https://developers.google.com/admob/terms" target="_blank"
+            >Términos de AdMob</a
+          >.
+        </li>
+      </ul>
+
+      <h2 id="section6-title">6. TRANSFERENCIAS INTERNACIONALES DE DATOS</h2>
+      <p id="section6-text">
+        Al utilizar servicios de terceros como Google AdMob (propiedad de Google
+        LLC, con sede en EE.UU.) y APIs de tasas de cambio alojadas en
+        servidores internacionales, los datos anónimos de consulta pueden ser
+        transferidos y procesados fuera de tu país de residencia. Estas
+        transferencias se realizan de acuerdo con las leyes de protección de
+        datos aplicables y los acuerdos de transferencia de datos de la Unión
+        Europea (Cláusulas Contractuales Tipo).
+      </p>
+
+      <h2 id="section7-title">7. SEGURIDAD DE LOS DATOS</h2>
+      <p id="section7-text">
+        Aunque no recopilamos datos personales, implementamos medidas de
+        seguridad para proteger la aplicación y los datos locales almacenados en
+        tu dispositivo:
+      </p>
+      <ul id="section7-list">
+        <li>
+          Todas las comunicaciones con APIs externas se realizan mediante HTTPS
+          (cifrado SSL/TLS).
+        </li>
+        <li>La aplicación no contiene código malicioso ni trackers ocultos.</li>
+        <li>
+          Los datos locales están aislados y solo son accesibles por la propia
+          aplicación.
+        </li>
+        <li>
+          Actualizaciones regulares para corregir posibles vulnerabilidades.
+        </li>
+      </ul>
+
+      <h2 id="section8-title">8. TUS DERECHOS (RGPD Y LEYES APLICABLES)</h2>
+      <p id="section8-text">
+        Dado que no recopilamos datos personales, la mayoría de los derechos de
+        protección de datos no son aplicables. Sin embargo, reconocemos y
+        respetamos los siguientes derechos:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th id="table-right">Derecho</th>
+            <th id="table-description">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Derecho a estar informado</strong></td>
+            <td id="right-1">
+              Esta política de privacidad te informa sobre nuestro tratamiento
+              de datos.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Derecho a la privacidad por defecto</strong></td>
+            <td id="right-2">
+              La aplicación está diseñada para no recopilar datos personales por
+              defecto.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Derecho a eliminar datos locales</strong></td>
+            <td id="right-3">
+              Puedes borrar todos los datos locales de la app en cualquier
+              momento desde los ajustes de Android.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Derecho a oponerse al tratamiento publicitario</strong>
+            </td>
+            <td id="right-4">
+              Puedes desactivar la personalización de anuncios desde los ajustes
+              de Google.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="section9-title">9. MENORES DE EDAD</h2>
+      <p id="section9-text">
+        Cambiofy no está dirigida a menores de 13 años. No recopilamos
+        conscientemente información de menores. Si eres padre/madre o tutor y
+        crees que tu hijo nos ha proporcionado información personal (lo cual no
+        es posible por diseño), contacta con nosotros para que podamos
+        investigar.
+      </p>
+
+      <h2 id="section10-title">10. ENLACES A TERCEROS</h2>
+      <p id="section10-text">
+        La aplicación puede contener enlaces a sitios web de terceros (por
+        ejemplo, políticas de privacidad de APIs). No nos responsabilizamos de
+        las prácticas de privacidad de estos sitios. Te recomendamos leer sus
+        políticas de privacidad.
+      </p>
+
+      <h2 id="section11-title">11. CAMBIOS EN ESTA POLÍTICA</h2>
+      <p id="section11-text">
+        Podemos actualizar esta política de privacidad ocasionalmente. La
+        versión más actualizada estará siempre disponible en esta URL. Si los
+        cambios son sustanciales, te notificaremos a través de la aplicación. El
+        uso continuado de la app después de los cambios implica la aceptación de
+        la nueva política.
+      </p>
+
+      <h2 id="section12-title">12. CONTACTO Y SOPORTE</h2>
+
+      <div class="contact-box">
+        <p
+          style="font-size: 18px; margin-bottom: 16px; color: white"
+          id="contact-intro"
+        >
+          ¿Preguntas sobre tu privacidad o la aplicación?
+        </p>
+        <div class="contact-email">
+          <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>
+        </div>
+        <p
+          style="margin-top: 20px; opacity: 0.9; color: white"
+          id="contact-response"
+        >
+          📬 Respondemos en un máximo de 48 horas hábiles
+        </p>
+        <p
+          style="margin-top: 8px; font-size: 14px; opacity: 0.8; color: white"
+          id="contact-info"
+        >
+          Para asuntos de privacidad, incluye "PRIVACIDAD" en el asunto
+        </p>
+      </div>
+
+      <h2 id="section13-title">13. DATOS DE CONTACTO ADICIONALES</h2>
+      <ul id="section13-list">
+        <li>
+          <strong>Email general y soporte:</strong>
+          <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>
+        </li>
+      </ul>
+
+      <h2 id="section14-title">14. LEGISLACIÓN APLICABLE</h2>
+      <p id="section14-text">
+        Esta política de privacidad se rige por el Reglamento General de
+        Protección de Datos (RGPD) de la Unión Europea y la legislación española
+        de protección de datos (LOPDGDD). Para cualquier controversia, serán
+        competentes los tribunales de Madrid, España.
+      </p>
 
       <div class="footer">
-        <p>© 2026 Cambiofy - Conversor de Divisas en Tiempo Real</p>
-        <p style="margin-top: 8px">
-          Datos proporcionados por Fawazahmed0 API (código abierto) • ExchangeRate-API • Frankfurter.app
+        <p>© 2026 Cambiofy. Todos los derechos reservados.</p>
+        <p style="margin-top: 8px" id="footer-sources">
+          Datos: Fawazahmed0 API • ExchangeRate-API • Frankfurter.app
         </p>
-        <p style="margin-top: 8px">
-          Desarrollado con ❤️ para una experiencia financiera transparente
+        <p style="margin-top: 4px; font-size: 12px">
+          Versión 2.0.1 • Desarrollado con ❤️
         </p>
       </div>
     </div>
+
+    <script>
+      const translations = {
+        es: {
+          title: "Política de Privacidad",
+          badge: "🔒 Cambiofy - Convertidor de Divisas",
+          lastUpdated:
+            "<strong>📅 Última actualización:</strong> 11 de marzo de 2026",
+          introText:
+            "En Cambiofy, tu privacidad es nuestra prioridad. Esta política explica qué información recopilamos, cómo la usamos y qué derechos tienes sobre tus datos.",
+
+          section1Title: "1. INFORMACIÓN QUE RECOPILAMOS",
+          section1_1Title: "1.1. No recopilamos datos personales",
+          section1_1Text:
+            "<strong>Cambiofy NO recopila, almacena, comparte ni vende ningún tipo de información personal identificable.</strong> Esto incluye, de forma enunciativa pero no limitativa:",
+          section1_1List: [
+            "Nombre, email, número de teléfono o dirección física",
+            "Datos de ubicación geográfica (GPS o dirección IP)",
+            "Datos biométricos o de salud",
+            "Información financiera sensible",
+            "Contactos, fotos, archivos o contenido del dispositivo",
+          ],
+
+          section1_2Title: "1.2. Datos de uso anónimos",
+          section1_2Text:
+            "La aplicación puede recopilar datos de uso anónimos y no identificables para mejorar la experiencia del usuario, tales como:",
+          section1_2List: [
+            "Interacción con las funcionalidades de la app",
+            "Preferencias seleccionadas (moneda por defecto, modo oscuro, decimales)",
+            "Rendimiento y estabilidad de la aplicación",
+          ],
+          section1_2Note:
+            "<em>Estos datos son completamente anónimos y no pueden asociarse a un usuario específico.</em>",
+
+          section2Title: "2. PERMISOS DE LA APLICACIÓN",
+          section2Text:
+            "Cambiofy solicita únicamente los permisos estrictamente necesarios para su funcionamiento:",
+          tablePermission: "Permiso",
+          tablePurpose: "Propósito",
+          tableRequired: "¿Obligatorio?",
+          permInternet:
+            "Obtener tasas de cambio actualizadas desde APIs públicas",
+          permNetwork:
+            "Detectar conexión y activar modo offline automáticamente",
+          yes: "SÍ",
+          yes2: "SÍ",
+          section2Note:
+            "<strong>Importante:</strong> No solicitamos acceso a contactos, cámara, galería, micrófono, ubicación, archivos ni ningún otro permiso sensible.",
+
+          section3Title: "3. DATOS LOCALES Y ALMACENAMIENTO",
+          section3Text:
+            "La aplicación almacena exclusivamente en tu dispositivo (almacenamiento local) la siguiente información:",
+          section3List: [
+            "<strong>Preferencias de usuario:</strong> Moneda por defecto, modo oscuro, número de decimales",
+            "<strong>Favoritos:</strong> Lista de monedas marcadas como favoritas",
+            "<strong>Conversiones recientes:</strong> Últimas 5 conversiones realizadas",
+            "<strong>Caché de tasas:</strong> Tasas de cambio guardadas para funcionamiento offline",
+            "<strong>Datos históricos:</strong> Caché de 7 días de gráficos para reducir consultas a APIs",
+          ],
+          section3Note:
+            "<strong>🔒 Estos datos NUNCA salen de tu dispositivo.</strong> Puedes eliminarlos en cualquier momento desde los ajustes de la aplicación o borrando los datos de la app en Android (Ajustes → Aplicaciones → Cambiofy → Almacenamiento → Borrar datos).",
+
+          section4Title: "4. APIs DE TERCEROS (FUENTES DE DATOS)",
+          section4Text:
+            "Para ofrecer tasas de cambio precisas y actualizadas, Cambiofy consulta las siguientes APIs públicas. <strong>No compartimos ningún dato tuyo con estos servicios</strong>, solo realizamos consultas anónimas de tasas.",
+
+          badgePrimary: "PRINCIPAL",
+          fawazahmedDesc:
+            "API de código abierto que recopila datos diarios de fuentes financieras públicas. Proporciona más de 150 monedas y datos históricos desde 2020. <strong>Ventajas:</strong> gratuita, sin límites de peticiones, datos históricos completos.",
+          fawazahmedNote:
+            "📊 Utilizada para tasas actuales y gráficos históricos de 30 días.",
+
+          badgeSecondary: "RESPALDO",
+          exchangerateDesc:
+            "Servicio de tasas en tiempo real con actualización horaria (plan gratuito). Utilizado como fuente secundaria de respaldo.",
+
+          badgeHistorical: "HISTÓRICO",
+          frankfurterDesc:
+            "API pública del Banco Central Europeo con datos históricos para las 33 monedas principales. Fuente adicional para validación de datos.",
+
+          apiNote:
+            '<strong>📌 Sobre la precisión de los datos:</strong> Las tasas de cambio pueden tener pequeñas variaciones respecto al mercado interbancario. Para pares de monedas poco comunes (ej. FJD/BGN), las tasas se calculan mediante el método de "tasa cruzada" utilizando el USD como referencia, método estándar en el sector financiero.',
+
+          section5Title: "5. PUBLICIDAD (GOOGLE ADMOB)",
+          section5Text:
+            "Cambiofy es una aplicación gratuita y se financia mediante publicidad de Google AdMob. Al utilizar la aplicación:",
+          section5List: [
+            "<strong>Identificadores publicitarios:</strong> Google puede utilizar el ID de publicidad de tu dispositivo (AAID) para mostrar anuncios personalizados. Este identificador es anónimo y puedes restablecerlo o limitar su uso.",
+            "<strong>No compartimos datos:</strong> Nosotros no compartimos ningún dato personal tuyo con Google ni con anunciantes. Google recopila la información según su propia política de privacidad.",
+            "<strong>Cómo desactivar la personalización:</strong> Puedes optar por no recibir anuncios personalizados desde los ajustes de tu dispositivo Android: <em>Ajustes → Google → Anuncios → Desactivar personalización de anuncios</em>.",
+            '<strong>Más información:</strong> Consulta la <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidad de Google</a> y los <a href="https://developers.google.com/admob/terms" target="_blank">Términos de AdMob</a>.',
+          ],
+
+          section6Title: "6. TRANSFERENCIAS INTERNACIONALES DE DATOS",
+          section6Text:
+            "Al utilizar servicios de terceros como Google AdMob (propiedad de Google LLC, con sede en EE.UU.) y APIs de tasas de cambio alojadas en servidores internacionales, los datos anónimos de consulta pueden ser transferidos y procesados fuera de tu país de residencia. Estas transferencias se realizan de acuerdo con las leyes de protección de datos aplicables y los acuerdos de transferencia de datos de la Unión Europea (Cláusulas Contractuales Tipo).",
+
+          section7Title: "7. SEGURIDAD DE LOS DATOS",
+          section7Text:
+            "Aunque no recopilamos datos personales, implementamos medidas de seguridad para proteger la aplicación y los datos locales almacenados en tu dispositivo:",
+          section7List: [
+            "Todas las comunicaciones con APIs externas se realizan mediante HTTPS (cifrado SSL/TLS).",
+            "La aplicación no contiene código malicioso ni trackers ocultos.",
+            "Los datos locales están aislados y solo son accesibles por la propia aplicación.",
+            "Actualizaciones regulares para corregir posibles vulnerabilidades.",
+          ],
+
+          section8Title: "8. TUS DERECHOS (RGPD Y LEYES APLICABLES)",
+          section8Text:
+            "Dado que no recopilamos datos personales, la mayoría de los derechos de protección de datos no son aplicables. Sin embargo, reconocemos y respetamos los siguientes derechos:",
+          tableRight: "Derecho",
+          tableDescription: "Descripción",
+          right1:
+            "Esta política de privacidad te informa sobre nuestro tratamiento de datos.",
+          right2:
+            "La aplicación está diseñada para no recopilar datos personales por defecto.",
+          right3:
+            "Puedes borrar todos los datos locales de la app en cualquier momento desde los ajustes de Android.",
+          right4:
+            "Puedes desactivar la personalización de anuncios desde los ajustes de Google.",
+
+          section9Title: "9. MENORES DE EDAD",
+          section9Text:
+            "Cambiofy no está dirigida a menores de 13 años. No recopilamos conscientemente información de menores. Si eres padre/madre o tutor y crees que tu hijo nos ha proporcionado información personal (lo cual no es posible por diseño), contacta con nosotros para que podamos investigar.",
+
+          section10Title: "10. ENLACES A TERCEROS",
+          section10Text:
+            "La aplicación puede contener enlaces a sitios web de terceros (por ejemplo, políticas de privacidad de APIs). No nos responsabilizamos de las prácticas de privacidad de estos sitios. Te recomendamos leer sus políticas de privacidad.",
+
+          section11Title: "11. CAMBIOS EN ESTA POLÍTICA",
+          section11Text:
+            "Podemos actualizar esta política de privacidad ocasionalmente. La versión más actualizada estará siempre disponible en esta URL. Si los cambios son sustanciales, te notificaremos a través de la aplicación. El uso continuado de la app después de los cambios implica la aceptación de la nueva política.",
+
+          section12Title: "12. CONTACTO Y SOPORTE",
+          contactIntro: "¿Preguntas sobre tu privacidad o la aplicación?",
+          contactResponse: "📬 Respondemos en un máximo de 48 horas hábiles",
+          contactInfo:
+            'Para asuntos de privacidad, incluye "PRIVACIDAD" en el asunto',
+
+          section13Title: "13. DATOS DE CONTACTO ADICIONALES",
+          section13List: [
+            '<strong>Email general y soporte:</strong> <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>',
+          ],
+
+          section14Title: "14. LEGISLACIÓN APLICABLE",
+          section14Text:
+            "Esta política de privacidad se rige por el Reglamento General de Protección de Datos (RGPD) de la Unión Europea y la legislación española de protección de datos (LOPDGDD). Para cualquier controversia, serán competentes los tribunales de Madrid, España.",
+
+          footerSources:
+            "Datos: Fawazahmed0 API • ExchangeRate-API • Frankfurter.app",
+        },
+        en: {
+          title: "Privacy Policy",
+          badge: "🔒 Cambiofy - Currency Converter",
+          lastUpdated: "<strong>📅 Last updated:</strong> March 11, 2026",
+          introText:
+            "At Cambiofy, your privacy is our priority. This policy explains what information we collect, how we use it, and what rights you have regarding your data.",
+
+          section1Title: "1. INFORMATION WE COLLECT",
+          section1_1Title: "1.1. We do not collect personal data",
+          section1_1Text:
+            "<strong>Cambiofy does NOT collect, store, share, or sell any personally identifiable information.</strong> This includes, but is not limited to:",
+          section1_1List: [
+            "Name, email, phone number, or physical address",
+            "Geolocation data (GPS or IP address)",
+            "Biometric or health data",
+            "Sensitive financial information",
+            "Contacts, photos, files, or device content",
+          ],
+
+          section1_2Title: "1.2. Anonymous usage data",
+          section1_2Text:
+            "The application may collect anonymous, non-identifiable usage data to improve user experience, such as:",
+          section1_2List: [
+            "Interaction with app features",
+            "Selected preferences (default currency, dark mode, decimals)",
+            "App performance and stability",
+          ],
+          section1_2Note:
+            "<em>This data is completely anonymous and cannot be linked to a specific user.</em>",
+
+          section2Title: "2. APP PERMISSIONS",
+          section2Text:
+            "Cambiofy only requests the strictly necessary permissions for its operation:",
+          tablePermission: "Permission",
+          tablePurpose: "Purpose",
+          tableRequired: "Required?",
+          permInternet: "Fetch updated exchange rates from public APIs",
+          permNetwork:
+            "Detect connection and activate offline mode automatically",
+          yes: "YES",
+          yes2: "YES",
+          section2Note:
+            "<strong>Important:</strong> We do not request access to contacts, camera, gallery, microphone, location, files, or any other sensitive permissions.",
+
+          section3Title: "3. LOCAL DATA AND STORAGE",
+          section3Text:
+            "The application stores exclusively on your device (local storage) the following information:",
+          section3List: [
+            "<strong>User preferences:</strong> Default currency, dark mode, number of decimals",
+            "<strong>Favorites:</strong> List of currencies marked as favorites",
+            "<strong>Recent conversions:</strong> Last 5 conversions performed",
+            "<strong>Rate cache:</strong> Saved exchange rates for offline functionality",
+            "<strong>Historical data:</strong> 7-day chart cache to reduce API queries",
+          ],
+          section3Note:
+            "<strong>🔒 This data NEVER leaves your device.</strong> You can delete it at any time from the app settings or by clearing the app data in Android (Settings → Apps → Cambiofy → Storage → Clear data).",
+
+          section4Title: "4. THIRD-PARTY APIS (DATA SOURCES)",
+          section4Text:
+            "To provide accurate and up-to-date exchange rates, Cambiofy queries the following public APIs. <strong>We do not share any of your data with these services</strong>, we only make anonymous rate queries.",
+
+          badgePrimary: "PRIMARY",
+          fawazahmedDesc:
+            "Open-source API that collects daily data from public financial sources. Provides over 150 currencies and historical data since 2020. <strong>Advantages:</strong> free, no request limits, complete historical data.",
+          fawazahmedNote:
+            "📊 Used for current rates and 30-day historical charts.",
+
+          badgeSecondary: "BACKUP",
+          exchangerateDesc:
+            "Real-time exchange rate service with hourly updates (free plan). Used as a secondary backup source.",
+
+          badgeHistorical: "HISTORICAL",
+          frankfurterDesc:
+            "Public API from the European Central Bank with historical data for the 33 major currencies. Additional source for data validation.",
+
+          apiNote:
+            '<strong>📌 About data accuracy:</strong> Exchange rates may have small variations from the interbank market. For uncommon currency pairs (e.g., FJD/BGN), rates are calculated using the "cross rate" method with USD as reference, a standard method in the financial industry.',
+
+          section5Title: "5. ADVERTISING (GOOGLE ADMOB)",
+          section5Text:
+            "Cambiofy is a free application and is funded by Google AdMob advertising. By using the application:",
+          section5List: [
+            "<strong>Advertising identifiers:</strong> Google may use your device's advertising ID (AAID) to show personalized ads. This identifier is anonymous and you can reset or limit its use.",
+            "<strong>We do not share data:</strong> We do not share any of your personal data with Google or advertisers. Google collects information according to its own privacy policy.",
+            "<strong>How to opt out:</strong> You can opt out of personalized advertising from your Android device settings: <em>Settings → Google → Ads → Disable ad personalization</em>.",
+            '<strong>More information:</strong> See the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> and <a href="https://developers.google.com/admob/terms" target="_blank">AdMob Terms</a>.',
+          ],
+
+          section6Title: "6. INTERNATIONAL DATA TRANSFERS",
+          section6Text:
+            "By using third-party services such as Google AdMob (owned by Google LLC, based in the USA) and exchange rate APIs hosted on international servers, anonymous query data may be transferred and processed outside your country of residence. These transfers are carried out in accordance with applicable data protection laws and EU data transfer agreements (Standard Contractual Clauses).",
+
+          section7Title: "7. DATA SECURITY",
+          section7Text:
+            "Although we do not collect personal data, we implement security measures to protect the application and the local data stored on your device:",
+          section7List: [
+            "All communications with external APIs are made via HTTPS (SSL/TLS encryption).",
+            "The application contains no malicious code or hidden trackers.",
+            "Local data is isolated and only accessible by the application itself.",
+            "Regular updates to fix potential vulnerabilities.",
+          ],
+
+          section8Title: "8. YOUR RIGHTS (GDPR AND APPLICABLE LAWS)",
+          section8Text:
+            "Since we do not collect personal data, most data protection rights are not applicable. However, we recognize and respect the following rights:",
+          tableRight: "Right",
+          tableDescription: "Description",
+          right1: "This privacy policy informs you about our data processing.",
+          right2:
+            "The application is designed not to collect personal data by default.",
+          right3:
+            "You can delete all local app data at any time from Android settings.",
+          right4: "You can disable ad personalization from Google settings.",
+
+          section9Title: "9. MINORS",
+          section9Text:
+            "Cambiofy is not directed at children under 13. We do not knowingly collect information from minors. If you are a parent or guardian and believe your child has provided us with personal information (which is not possible by design), please contact us so we can investigate.",
+
+          section10Title: "10. THIRD-PARTY LINKS",
+          section10Text:
+            "The application may contain links to third-party websites (e.g., API privacy policies). We are not responsible for the privacy practices of these sites. We recommend reading their privacy policies.",
+
+          section11Title: "11. CHANGES TO THIS POLICY",
+          section11Text:
+            "We may update this privacy policy occasionally. The most current version will always be available at this URL. If changes are material, we will notify you through the application. Continued use of the app after changes implies acceptance of the new policy.",
+
+          section12Title: "12. CONTACT AND SUPPORT",
+          contactIntro: "Questions about your privacy or the app?",
+          contactResponse:
+            "📬 We respond within a maximum of 48 business hours",
+          contactInfo:
+            'For privacy matters, include "PRIVACY" in the subject line',
+
+          section13Title: "13. ADDITIONAL CONTACT INFORMATION",
+          section13List: [
+            '<strong>General email and support:</strong> <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>',
+          ],
+
+          section14Title: "14. APPLICABLE LAW",
+          section14Text:
+            "This privacy policy is governed by the General Data Protection Regulation (GDPR) of the European Union and Spanish data protection law (LOPDGDD). For any dispute, the courts of Madrid, Spain shall have jurisdiction.",
+
+          footerSources:
+            "Data: Fawazahmed0 API • ExchangeRate-API • Frankfurter.app",
+        },
+      };
+
+      function setLanguage(lang) {
+        document
+          .getElementById("btn-es")
+          .classList.toggle("active", lang === "es");
+        document
+          .getElementById("btn-en")
+          .classList.toggle("active", lang === "en");
+
+        const t = translations[lang];
+
+        // Títulos generales
+        document.getElementById("page-title").innerText = t.title;
+        document.getElementById("page-badge").innerText = t.badge;
+        document.getElementById("last-updated").innerHTML = t.lastUpdated;
+        document.getElementById("intro-text").innerHTML =
+          `<p style="margin-bottom: 0; font-weight: 500;">${t.introText}</p>`;
+
+        // Sección 1
+        document.getElementById("section1-title").innerText = t.section1Title;
+        document.getElementById("section1-1-title").innerText =
+          t.section1_1Title;
+        document.getElementById("section1-1-text").innerHTML = t.section1_1Text;
+
+        const section1_1List = document.getElementById("section1-1-list");
+        section1_1List.innerHTML = t.section1_1List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section1-2-title").innerText =
+          t.section1_2Title;
+        document.getElementById("section1-2-text").innerText = t.section1_2Text;
+
+        const section1_2List = document.getElementById("section1-2-list");
+        section1_2List.innerHTML = t.section1_2List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section1-2-note").innerHTML = t.section1_2Note;
+
+        // Sección 2
+        document.getElementById("section2-title").innerText = t.section2Title;
+        document.getElementById("section2-text").innerText = t.section2Text;
+        document.getElementById("table-permission").innerText =
+          t.tablePermission;
+        document.getElementById("table-purpose").innerText = t.tablePurpose;
+        document.getElementById("table-required").innerText = t.tableRequired;
+        document.getElementById("perm-internet").innerText = t.permInternet;
+        document.getElementById("perm-network").innerText = t.permNetwork;
+        document.getElementById("yes").innerText = t.yes;
+        document.getElementById("yes2").innerText = t.yes2;
+        document.getElementById("section2-note").innerHTML = t.section2Note;
+
+        // Sección 3
+        document.getElementById("section3-title").innerText = t.section3Title;
+        document.getElementById("section3-text").innerText = t.section3Text;
+
+        const section3List = document.getElementById("section3-list");
+        section3List.innerHTML = t.section3List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section3-note").innerHTML =
+          `<p style="margin-bottom: 0;">${t.section3Note}</p>`;
+
+        // Sección 4
+        document.getElementById("section4-title").innerText = t.section4Title;
+        document.getElementById("section4-text").innerHTML = t.section4Text;
+
+        document.getElementById("badge-primary").innerText = t.badgePrimary;
+        document.getElementById("fawazahmed-desc").innerHTML = t.fawazahmedDesc;
+        document.getElementById("fawazahmed-note").innerHTML = t.fawazahmedNote;
+
+        document.getElementById("badge-secondary").innerText = t.badgeSecondary;
+        document.getElementById("exchangerate-desc").innerText =
+          t.exchangerateDesc;
+
+        document.getElementById("badge-historical").innerText =
+          t.badgeHistorical;
+        document.getElementById("frankfurter-desc").innerText =
+          t.frankfurterDesc;
+
+        document.getElementById("api-note").innerHTML =
+          `<p style="margin-bottom: 0;">${t.apiNote}</p>`;
+
+        // Sección 5
+        document.getElementById("section5-title").innerText = t.section5Title;
+        document.getElementById("section5-text").innerText = t.section5Text;
+
+        const section5List = document.getElementById("section5-list");
+        section5List.innerHTML = t.section5List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        // Sección 6
+        document.getElementById("section6-title").innerText = t.section6Title;
+        document.getElementById("section6-text").innerText = t.section6Text;
+
+        // Sección 7
+        document.getElementById("section7-title").innerText = t.section7Title;
+        document.getElementById("section7-text").innerText = t.section7Text;
+
+        const section7List = document.getElementById("section7-list");
+        section7List.innerHTML = t.section7List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        // Sección 8
+        document.getElementById("section8-title").innerText = t.section8Title;
+        document.getElementById("section8-text").innerText = t.section8Text;
+        document.getElementById("table-right").innerText = t.tableRight;
+        document.getElementById("table-description").innerText =
+          t.tableDescription;
+        document.getElementById("right-1").innerText = t.right1;
+        document.getElementById("right-2").innerText = t.right2;
+        document.getElementById("right-3").innerText = t.right3;
+        document.getElementById("right-4").innerText = t.right4;
+
+        // Sección 9
+        document.getElementById("section9-title").innerText = t.section9Title;
+        document.getElementById("section9-text").innerText = t.section9Text;
+
+        // Sección 10
+        document.getElementById("section10-title").innerText = t.section10Title;
+        document.getElementById("section10-text").innerText = t.section10Text;
+
+        // Sección 11
+        document.getElementById("section11-title").innerText = t.section11Title;
+        document.getElementById("section11-text").innerText = t.section11Text;
+
+        // Sección 12
+        document.getElementById("section12-title").innerText = t.section12Title;
+        document.getElementById("contact-intro").innerText = t.contactIntro;
+        document.getElementById("contact-response").innerText =
+          t.contactResponse;
+        document.getElementById("contact-info").innerText = t.contactInfo;
+
+        // Sección 13
+        document.getElementById("section13-title").innerText = t.section13Title;
+
+        const section13List = document.getElementById("section13-list");
+        section13List.innerHTML = t.section13List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        // Sección 14
+        document.getElementById("section14-title").innerText = t.section14Title;
+        document.getElementById("section14-text").innerText = t.section14Text;
+
+        // Footer
+        document.getElementById("footer-sources").innerText = t.footerSources;
+      }
+    </script>
   </body>
 </html>

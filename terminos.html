@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Términos de Uso - Cambiofy</title>
+    <title>Términos y Condiciones - Cambiofy</title>
     <style>
       * {
         margin: 0;
@@ -31,12 +31,24 @@
         border-radius: 24px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       }
+      .header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .title-section {
+        flex: 1;
+        min-width: 250px;
+      }
       h1 {
         font-size: clamp(24px, 5vw, 32px);
         font-weight: 700;
-        margin-bottom: 8px;
         color: #111827;
         line-height: 1.2;
+        margin-bottom: 8px;
       }
       .badge {
         display: inline-block;
@@ -46,20 +58,64 @@
         border-radius: 20px;
         font-size: clamp(12px, 3vw, 14px);
         font-weight: 600;
-        margin-bottom: 24px;
+      }
+      .language-selector {
+        display: flex;
+        gap: 8px;
+        background: #f3f4f6;
+        padding: 4px;
+        border-radius: 40px;
+        border: 1px solid #e5e7eb;
+      }
+      .lang-btn {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: transparent;
+        color: #6b7280;
+      }
+      .lang-btn.active {
+        background: #6366f1;
+        color: white;
+        box-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
+      }
+      .lang-btn:hover:not(.active) {
+        background: #e5e7eb;
+      }
+      .last-updated {
+        margin: 24px 0;
+        padding: 12px 16px;
+        background: #f9fafb;
+        border-radius: 12px;
+        font-size: 14px;
+        color: #6b7280;
+        border: 1px solid #e5e7eb;
       }
       h2 {
         font-size: clamp(18px, 4vw, 20px);
         font-weight: 600;
-        margin: 32px 0 12px;
+        margin: 32px 0 16px;
         color: #111827;
+        border-bottom: 2px solid #eef2ff;
+        padding-bottom: 8px;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 20px 0 10px;
+        color: #374151;
       }
       p {
         margin-bottom: 16px;
         color: #4b5563;
         font-size: clamp(14px, 3.5vw, 16px);
       }
-      ul {
+      ul,
+      ol {
         margin-bottom: 16px;
         padding-left: 24px;
       }
@@ -74,22 +130,6 @@
         border-radius: 12px;
         border-left: 4px solid #6366f1;
         margin: 24px 0;
-      }
-      .footer {
-        margin-top: 48px;
-        padding-top: 24px;
-        border-top: 1px solid #e5e7eb;
-        text-align: center;
-        color: #6b7280;
-        font-size: clamp(12px, 3vw, 14px);
-      }
-      a {
-        color: #6366f1;
-        text-decoration: none;
-        word-break: break-word;
-      }
-      a:hover {
-        text-decoration: underline;
       }
       .api-card {
         background: #f9fafb;
@@ -108,217 +148,693 @@
         font-weight: 600;
         margin-right: 8px;
       }
+      .contact-box {
+        background: linear-gradient(135deg, #63637b 0%, #a5a5a5 100%);
+        padding: 32px;
+        border-radius: 20px;
+        margin: 32px 0;
+        color: white;
+        text-align: center;
+      }
+      .contact-email {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 20px 0 10px;
+        word-break: break-all;
+      }
+      .contact-email a {
+        color: white;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 4px;
+      }
+      .contact-email a:hover {
+        border-bottom-color: white;
+      }
+      .footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 2px solid #eef2ff;
+        text-align: center;
+        color: #6b7280;
+        font-size: clamp(12px, 3vw, 14px);
+      }
+      .footer p {
+        margin-bottom: 8px;
+        color: #6b7280;
+      }
+      a {
+        color: #6366f1;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
       .note {
-        background: #fff3cd;
-        border-left: 4px solid #ffc107;
+        background: #fff7ed;
+        border-left: 4px solid #f97316;
         padding: 16px;
-        margin: 20px 0;
         border-radius: 8px;
+        margin: 20px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #e5e7eb;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background: #f9fafb;
+        font-weight: 600;
       }
       @media (max-width: 480px) {
         body {
           padding: 10px;
         }
-        ul {
+        ul,
+        ol {
           padding-left: 20px;
+        }
+        .contact-email {
+          font-size: 18px;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Términos de Uso</h1>
-      <span class="badge">⚖️ Cambiofy - Convertidor de Divisas en Tiempo Real</span>
-
-      <p><strong>Última actualización:</strong> 11 de marzo de 2026</p>
-
-      <p>
-        Al descargar, instalar o usar Cambiofy ("la Aplicación"), aceptas
-        estos Términos de Uso. Si no estás de acuerdo, por favor no uses la
-        aplicación.
-      </p>
-
-      <h2>📱 1. Licencia de uso</h2>
-      <p>
-        Te otorgamos una licencia limitada, no exclusiva, intransferible y
-        revocable para usar la aplicación en tus dispositivos personales. La
-        aplicación es para uso personal y no comercial.
-      </p>
-
-      <h2>💰 2. Gratuidad y publicidad</h2>
-      <p>
-        Cambiofy es una aplicación gratuita. Para mantenerla así, mostramos
-        publicidad de Google AdMob. Los anuncios pueden ser personalizados según
-        tus intereses, pero <strong>no compartimos ningún dato tuyo</strong> con
-        los anunciantes.
-      </p>
-
-      <h2>🔄 3. Precisión de las tasas y gráficos</h2>
-      <p>
-        Las tasas de cambio se obtienen de múltiples fuentes para garantizar la máxima precisión:
-      </p>
-
-      <div class="api-card">
-        <span class="api-badge">PRINCIPAL</span>
-        <strong>Fawazahmed0 Currency API</strong><br/>
-        <a href="https://github.com/fawazahmed0/exchange-api" target="_blank">https://github.com/fawazahmed0/exchange-api</a>
-        <p style="margin-top: 8px;">
-          <strong>¿Cómo funciona?</strong> Esta API de código abierto recopila datos diarios de fuentes financieras 
-          públicas y los sirve mediante archivos JSON estáticos en CDN. Proporciona:
-        </p>
-        <ul>
-          <li>✅ <strong>Más de 150 monedas</strong> - Incluye todas las monedas principales y exóticas</li>
-          <li>✅ <strong>Datos históricos completos</strong> - Desde 2020 hasta la actualidad</li>
-          <li>✅ <strong>Tasas cruzadas precisas</strong> - Para pares poco comunes (ej. FJD/BGN) calculadas mediante USD</li>
-          <li>✅ <strong>Sin límites de peticiones</strong> - Al ser archivos estáticos, no hay restricciones</li>
-          <li>✅ <strong>Actualización diaria</strong> - Datos frescos cada día</li>
-        </ul>
-        <p style="font-size: 14px; background: #eef2ff; padding: 8px; border-radius: 8px; margin-top: 8px;">
-          📈 Los gráficos de evolución de 30 días se generan con datos reales de esta API.
-        </p>
+      <!-- Header con selector de idioma -->
+      <div class="header">
+        <div class="title-section">
+          <h1 id="page-title">Términos y Condiciones</h1>
+          <span class="badge" id="page-badge"
+            >⚖️ Cambiofy - Convertidor de Divisas</span
+          >
+        </div>
+        <div class="language-selector">
+          <button
+            class="lang-btn active"
+            onclick="setLanguage('es')"
+            id="btn-es"
+          >
+            ES
+          </button>
+          <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+            EN
+          </button>
+        </div>
       </div>
 
-      <div class="api-card">
-        <span class="api-badge">RESPALDO</span>
-        <strong>ExchangeRate-API</strong><br/>
-        <a href="https://www.exchangerate-api.com" target="_blank">https://www.exchangerate-api.com</a>
-        <p style="margin-top: 8px;">
-          Tasas en tiempo real con actualización horaria. Utilizada como fuente secundaria para validación.
-        </p>
+      <div class="last-updated" id="last-updated">
+        <strong>📅 Última actualización:</strong> 11 de marzo de 2026
       </div>
 
-      <div class="api-card">
-        <span class="api-badge">HISTÓRICO</span>
-        <strong>Frankfurter.app</strong><br/>
-        <a href="https://www.frankfurter.app" target="_blank">https://www.frankfurter.app</a>
-        <p style="margin-top: 8px;">
-          API pública del Banco Central Europeo con datos históricos para 33 monedas principales.
-        </p>
-      </div>
-
-      <div class="note">
-        <strong>📊 Sobre la precisión de los datos:</strong>
-        <p style="margin-top: 8px; margin-bottom: 0;">
-          Para pares de monedas poco comunes (como Dólar de Fiyi a Lev búlgaro), las tasas se calculan 
-          mediante el método de "tasa cruzada" utilizando el dólar estadounidense como referencia. 
-          Este es el mismo método que utilizan los bancos y casas de cambio para cotizaciones de pares exóticos, 
-          por lo que los valores son matemáticamente precisos y consistentes con el mercado.
-        </p>
-      </div>
-
-      <p>
-        Hacemos nuestro mejor esfuerzo para que las tasas sean precisas, pero:
-      </p>
-      <ul>
-        <li>Pueden tener pequeñas variaciones respecto al mercado interbancario</li>
-        <li>No garantizamos disponibilidad 24/7 de las APIs</li>
-        <li>La app funciona offline con tasas de respaldo y datos en caché</li>
-        <li>Los gráficos históricos se actualizan diariamente</li>
-      </ul>
-      <p>
-        <strong
-          >No uses esta aplicación para operaciones financieras
-          críticas.</strong
-        >
-        Es una herramienta de referencia, no una plataforma de trading o
-        inversión.
-      </p>
-
-      <h2>📊 4. Funcionalidad de gráficos</h2>
-      <p>
-        La aplicación incluye gráficos de evolución de 30 días para todos los pares de monedas.
-        Estos gráficos se generan con:
-      </p>
-      <ul>
-        <li>Datos históricos reales de Fawazahmed0 API</li>
-        <li>Caché local de 7 días para reducir consultas</li>
-        <li>Más de 30 puntos de datos (uno por día)</li>
-        <li>Estadísticas de tendencia (mínimo, máximo, promedio)</li>
-      </ul>
-      <p>
-        Los gráficos están disponibles para TODAS las combinaciones de monedas, incluyendo pares exóticos,
-        gracias al sistema de tasas cruzadas.
-      </p>
-
-      <h2>⛔ 5. Uso aceptable</h2>
-      <p>No puedes:</p>
-      <ul>
-        <li>Modificar, descompilar o hacer ingeniería inversa de la app</li>
-        <li>Usar la app para actividades ilegales</li>
-        <li>Distribuir copias de la app sin autorización</li>
-        <li>Eliminar atribuciones de derechos de autor</li>
-        <li>Realizar scraping o consultas automatizadas excesivas a las APIs</li>
-      </ul>
-
-      <h2>🛡️ 6. Exención de responsabilidad</h2>
-      <p>
-        La aplicación se proporciona "tal cual", sin garantías de ningún tipo.
-        No nos responsabilizamos por:
-      </p>
-      <ul>
-        <li>
-          Pérdidas financieras por decisiones basadas en las tasas mostradas
-        </li>
-        <li>Interrupciones temporales del servicio</li>
-        <li>Contenido de anuncios de terceros</li>
-        <li>Daños directos o indirectos derivados del uso de la app</li>
-        <li>Errores en las APIs de terceros</li>
-      </ul>
-
-      <h2>🔗 7. Servicios de terceros</h2>
-      <p>La app utiliza:</p>
-      <ul>
-        <li>
-          <strong>Fawazahmed0 Currency API</strong> - 
-          <a href="https://github.com/fawazahmed0/exchange-api" target="_blank">Código abierto (MIT License)</a>
-        </li>
-        <li>
-          <strong>ExchangeRate-API</strong> - 
-          <a href="https://www.exchangerate-api.com/terms" target="_blank">Términos de servicio</a>
-        </li>
-        <li>
-          <strong>Frankfurter.app</strong> - 
-          <a href="https://www.frankfurter.app" target="_blank">API pública</a>
-        </li>
-        <li>
-          <strong>Google AdMob</strong> - 
-          <a href="https://developers.google.com/admob/terms" target="_blank">Términos de AdMob</a>
-        </li>
-      </ul>
-      <p>
-        No tenemos control sobre la disponibilidad, precisión o políticas de
-        estos servicios.
-      </p>
-
-      <h2>📞 8. Contacto</h2>
-      <p>Para preguntas sobre estos términos:</p>
-      <ul>
-        <li>📧 <strong>scurrencypro@gmail.com</strong></li>
-        <li>⏱️ Respondemos en máximo 48 horas hábiles</li>
-      </ul>
-
-      <h2>📅 9. Modificaciones</h2>
-      <p>
-        Podemos actualizar estos términos ocasionalmente. La versión actualizada
-        estará disponible en esta misma URL. El uso continuado de la app implica
-        la aceptación de los nuevos términos.
-      </p>
-
-      <div class="highlight">
+      <div class="highlight" id="intro-text">
         <p style="margin-bottom: 0; font-weight: 500">
-          ✨ Cambiofy: Tasas de cambio en tiempo real, gráficos históricos precisos y respeto total por tu privacidad.
+          Por favor, lee detenidamente estos términos y condiciones antes de
+          utilizar nuestra aplicación. Al descargar, acceder o usar Cambiofy,
+          aceptas quedar vinculado por estos términos.
         </p>
       </div>
+
+      <h2 id="section1-title">1. ACEPTACIÓN DE LOS TÉRMINOS</h2>
+      <p id="section1-text">
+        Estos Términos y Condiciones constituyen un acuerdo legal vinculante
+        entre tú (el usuario) y Cambiofy (en adelante, "la aplicación",
+        "nosotros" o "nuestro"). Al descargar, instalar o utilizar la
+        aplicación, confirmas que has leído, entendido y aceptas quedar sujeto a
+        estos términos. Si no estás de acuerdo con alguna parte de estos
+        términos, no podrás utilizar la aplicación.
+      </p>
+
+      <h2 id="section2-title">2. LICENCIA DE USO</h2>
+      <p id="section2-text">
+        Te otorgamos una licencia limitada, no exclusiva, intransferible,
+        revocable y personal para:
+      </p>
+      <ul id="section2-list">
+        <li>
+          Descargar e instalar la aplicación en tus dispositivos personales
+        </li>
+        <li>
+          Utilizar la aplicación exclusivamente para fines personales y no
+          comerciales
+        </li>
+        <li>
+          Acceder a las funcionalidades de conversión de divisas y gráficos
+          históricos
+        </li>
+      </ul>
+      <p><strong>Queda expresamente prohibido:</strong></p>
+      <ul>
+        <li>
+          Modificar, adaptar, traducir o realizar ingeniería inversa de la
+          aplicación
+        </li>
+        <li>
+          Copiar, distribuir o ceder la aplicación a terceros sin autorización
+        </li>
+        <li>
+          Utilizar la aplicación para fines comerciales sin nuestro
+          consentimiento
+        </li>
+        <li>
+          Eliminar o alterar cualquier aviso de derechos de autor o propiedad
+          intelectual
+        </li>
+        <li>
+          Realizar scraping, minería de datos o consultas automatizadas
+          excesivas
+        </li>
+      </ul>
+
+      <h2 id="section3-title">3. PROPIEDAD INTELECTUAL</h2>
+      <p id="section3-text">
+        Todos los derechos de propiedad intelectual sobre la aplicación,
+        incluyendo sin limitación, el código fuente, el diseño, la interfaz, los
+        logotipos, y los nombres comerciales, son propiedad exclusiva de
+        Cambiofy o sus licenciantes. El uso de la aplicación no te otorga ningún
+        derecho de propiedad sobre la misma.
+      </p>
+
+      <h2 id="section4-title">4. PRECISIÓN DE LOS DATOS Y FUENTES</h2>
+      <p id="section4-text">
+        Cambiofy obtiene las tasas de cambio de las siguientes fuentes públicas
+        y de código abierto:
+      </p>
+
+      <div class="api-card">
+        <span class="api-badge" id="badge-primary">PRINCIPAL</span>
+        <strong>Fawazahmed0 Currency API</strong><br />
+        <a href="https://github.com/fawazahmed0/exchange-api" target="_blank"
+          >github.com/fawazahmed0/exchange-api</a
+        >
+        <p style="margin-top: 8px" id="fawazahmed-desc">
+          API de código abierto que recopila datos diarios de fuentes
+          financieras públicas. Proporciona más de 150 monedas y datos
+          históricos desde 2020.
+        </p>
+      </div>
+
+      <div class="api-card">
+        <span class="api-badge" id="badge-secondary">RESPALDO</span>
+        <strong>ExchangeRate-API</strong><br />
+        <a href="https://www.exchangerate-api.com" target="_blank"
+          >exchangerate-api.com</a
+        >
+        <p style="margin-top: 8px" id="exchangerate-desc">
+          Servicio de tasas en tiempo real con actualización horaria (plan
+          gratuito).
+        </p>
+      </div>
+
+      <div class="api-card">
+        <span class="api-badge" id="badge-historical">HISTÓRICO</span>
+        <strong>Frankfurter.app</strong><br />
+        <a href="https://www.frankfurter.app" target="_blank"
+          >frankfurter.app</a
+        >
+        <p style="margin-top: 8px" id="frankfurter-desc">
+          API pública del Banco Central Europeo con datos históricos para
+          monedas principales.
+        </p>
+      </div>
+
+      <div class="note" id="accuracy-note">
+        <p style="margin-bottom: 0">
+          <strong>⚠️ Importante:</strong> Las tasas de cambio pueden tener
+          pequeñas variaciones respecto al mercado interbancario. No
+          garantizamos la disponibilidad 24/7 de las APIs de terceros. La
+          aplicación funciona en modo offline con datos cacheados, pero estos
+          pueden no reflejar las tasas más recientes. No utilices esta
+          aplicación para operaciones financieras en tiempo real o decisiones de
+          inversión críticas.
+        </p>
+      </div>
+
+      <h2 id="section5-title">5. GRÁFICOS Y DATOS HISTÓRICOS</h2>
+      <p id="section5-text">
+        La aplicación incluye gráficos de evolución de 30 días generados a
+        partir de datos históricos reales de Fawazahmed0 API. Estos gráficos:
+      </p>
+      <ul id="section5-list">
+        <li>Se actualizan diariamente con nuevas tasas</li>
+        <li>Almacenan caché local de 7 días para reducir consultas</li>
+        <li>Muestran tendencias basadas en datos reales, no simulaciones</li>
+        <li>
+          Pueden no incluir todos los días si la fuente no tiene datos para
+          fechas específicas
+        </li>
+      </ul>
+
+      <h2 id="section6-title">6. PUBLICIDAD</h2>
+      <p id="section6-text">
+        Cambiofy es una aplicación gratuita y se financia mediante publicidad de
+        Google AdMob. Al usar la aplicación:
+      </p>
+      <ul id="section6-list">
+        <li>
+          Google puede utilizar identificadores publicitarios anónimos para
+          mostrar anuncios personalizados
+        </li>
+        <li>
+          No compartimos ningún dato personal tuyo con Google ni con anunciantes
+        </li>
+        <li>
+          Puedes optar por no recibir publicidad personalizada desde los ajustes
+          de tu dispositivo Android:
+          <em
+            >Configuración → Google → Anuncios → Desactivar personalización de
+            anuncios</em
+          >
+        </li>
+        <li>
+          Para más información, consulta la
+          <a href="https://policies.google.com/privacy" target="_blank"
+            >Política de Privacidad de Google</a
+          >
+        </li>
+      </ul>
+
+      <h2 id="section7-title">7. EXENCIÓN DE RESPONSABILIDAD</h2>
+      <p id="section7-text">
+        LA APLICACIÓN SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD", SIN
+        GARANTÍAS DE NINGÚN TIPO, EXPRESAS O IMPLÍCITAS. EN PARTICULAR, NO
+        GARANTIZAMOS QUE:
+      </p>
+      <ul id="section7-list">
+        <li>
+          La aplicación sea ininterrumpida, oportuna, segura o libre de errores
+        </li>
+        <li>
+          Los resultados obtenidos del uso de la aplicación sean precisos o
+          confiables
+        </li>
+        <li>
+          La calidad de cualquier producto, servicio o información obtenida a
+          través de la aplicación satisfaga tus expectativas
+        </li>
+      </ul>
+      <p><strong>NO SOMOS RESPONSABLES POR:</strong></p>
+      <ul>
+        <li>
+          Pérdidas financieras derivadas del uso de las tasas de cambio
+          mostradas
+        </li>
+        <li>
+          Decisiones de inversión, compra o venta basadas en los datos de la
+          aplicación
+        </li>
+        <li>
+          Daños directos, indirectos, incidentales o consecuentes de cualquier
+          naturaleza
+        </li>
+        <li>
+          Interrupciones del servicio por mantenimiento, fallos técnicos o
+          causas ajenas a nuestro control
+        </li>
+        <li>Contenido de anuncios de terceros mostrados en la aplicación</li>
+      </ul>
+
+      <h2 id="section8-title">8. LIMITACIÓN DE RESPONSABILIDAD</h2>
+      <p id="section8-text">
+        EN LA MÁXIMA MEDIDA PERMITIDA POR LA LEY APLICABLE, EN NINGÚN CASO
+        CAMBIOFY SERÁ RESPONSABLE POR DAÑOS INDIRECTOS, INCIDENTALES,
+        ESPECIALES, CONSECUENTES O PUNITIVOS, INCLUYENDO SIN LIMITACIÓN, PÉRDIDA
+        DE BENEFICIOS, DATOS, USO, FONDO DE COMERCIO U OTRAS PÉRDIDAS
+        INTANGIBLES, DERIVADAS DE:
+      </p>
+      <ul>
+        <li>El uso o la imposibilidad de usar la aplicación</li>
+        <li>El costo de adquisición de bienes y servicios sustitutos</li>
+        <li>
+          El acceso no autorizado o la alteración de tus transmisiones o datos
+        </li>
+        <li>Declaraciones o conductas de cualquier tercero en la aplicación</li>
+      </ul>
+
+      <h2 id="section9-title">9. MODIFICACIONES DE LA APLICACIÓN</h2>
+      <p id="section9-text">
+        Nos reservamos el derecho de modificar, suspender o interrumpir temporal
+        o permanentemente la aplicación (o cualquier parte de ella) con o sin
+        previo aviso. No seremos responsables ante ti ni ante terceros por
+        cualquier modificación, suspensión o interrupción de la aplicación.
+      </p>
+
+      <h2 id="section10-title">10. MODIFICACIONES DE LOS TÉRMINOS</h2>
+      <p id="section10-text">
+        Podemos revisar estos términos periódicamente. La versión más
+        actualizada estará siempre disponible en esta URL. Si las modificaciones
+        son sustanciales, te notificaremos a través de la aplicación o por
+        correo electrónico. El uso continuado de la aplicación después de dichas
+        modificaciones constituye tu aceptación de los nuevos términos.
+      </p>
+
+      <h2 id="section11-title">11. LEY APLICABLE Y JURISDICCIÓN</h2>
+      <p id="section11-text">
+        Estos términos se regirán e interpretarán de acuerdo con las leyes de
+        España, sin dar efecto a sus principios de conflictos de leyes.
+        Cualquier disputa que surja en relación con estos términos estará sujeta
+        a la jurisdicción exclusiva de los tribunales de Madrid, España.
+      </p>
+
+      <h2 id="section12-title">12. CONTACTO Y SOPORTE</h2>
+
+      <div class="contact-box">
+        <p
+          style="font-size: 18px; margin-bottom: 16px; color: white"
+          id="contact-intro"
+        >
+          ¿Preguntas? ¿Problemas? ¿Sugerencias?
+        </p>
+        <div class="contact-email">
+          <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>
+        </div>
+        <p
+          style="margin-top: 20px; opacity: 0.9; color: white"
+          id="contact-response"
+        >
+          📬 Respondemos en un máximo de 48 horas hábiles
+        </p>
+        <p
+          style="margin-top: 8px; font-size: 14px; opacity: 0.8; color: white"
+          id="contact-info"
+        >
+          Incluye en tu correo: dispositivo, versión de Android y descripción
+          detallada del problema
+        </p>
+      </div>
+
+      <h2 id="section13-title">13. DATOS DE CONTACTO ADICIONALES</h2>
+      <p id="section13-text">
+        Para asuntos legales o de privacidad, puedes contactarnos en:
+      </p>
+      <ul id="section13-list">
+        <li>
+          <strong>Email general y soporte:</strong>
+          <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>
+        </li>
+      </ul>
+
+      <h2 id="section14-title">14. DISPOSICIONES GENERALES</h2>
+      <p id="section14-text">
+        Si alguna disposición de estos términos se considera inválida o
+        inaplicable, dicha disposición se eliminará y las disposiciones
+        restantes permanecerán en pleno vigor y efecto. Estos términos
+        constituyen el acuerdo completo entre tú y Cambiofy con respecto al uso
+        de la aplicación.
+      </p>
 
       <div class="footer">
-        <p>© 2026 Cambiofy - Todos los derechos reservados</p>
-        <p style="margin-top: 8px">
-          Datos: Fawazahmed0 API (código abierto) • ExchangeRate-API • Frankfurter.app
+        <p>© 2026 Cambiofy. Todos los derechos reservados.</p>
+        <p style="margin-top: 8px" id="footer-sources">
+          Datos: Fawazahmed0 API • ExchangeRate-API • Frankfurter.app
         </p>
-        <p style="margin-top: 8px">
-          Transparencia, precisión y privacidad 🔍
+        <p style="margin-top: 4px; font-size: 12px">
+          Versión 2.0.1 • Desarrollado con ❤️
         </p>
       </div>
     </div>
+
+    <script>
+      const translations = {
+        es: {
+          title: "Términos y Condiciones",
+          badge: "⚖️ Cambiofy - Convertidor de Divisas",
+          lastUpdated:
+            "<strong>📅 Última actualización:</strong> 11 de marzo de 2026",
+          introText:
+            "Por favor, lee detenidamente estos términos y condiciones antes de utilizar nuestra aplicación. Al descargar, acceder o usar Cambiofy, aceptas quedar vinculado por estos términos.",
+          section1Title: "1. ACEPTACIÓN DE LOS TÉRMINOS",
+          section1Text:
+            "Estos Términos y Condiciones constituyen un acuerdo legal vinculante entre tú (el usuario) y Cambiofy. Al descargar, instalar o utilizar la aplicación, confirmas que has leído, entendido y aceptas quedar sujeto a estos términos. Si no estás de acuerdo con alguna parte de estos términos, no podrás utilizar la aplicación.",
+          section2Title: "2. LICENCIA DE USO",
+          section2Text:
+            "Te otorgamos una licencia limitada, no exclusiva, intransferible, revocable y personal para:",
+          section2List: [
+            "Descargar e instalar la aplicación en tus dispositivos personales",
+            "Utilizar la aplicación exclusivamente para fines personales y no comerciales",
+            "Acceder a las funcionalidades de conversión de divisas y gráficos históricos",
+          ],
+          section3Title: "3. PROPIEDAD INTELECTUAL",
+          section3Text:
+            "Todos los derechos de propiedad intelectual sobre la aplicación, incluyendo sin limitación, el código fuente, el diseño, la interfaz, los logotipos, y los nombres comerciales, son propiedad exclusiva de Cambiofy o sus licenciantes.",
+          section4Title: "4. PRECISIÓN DE LOS DATOS Y FUENTES",
+          section4Text:
+            "Cambiofy obtiene las tasas de cambio de las siguientes fuentes públicas y de código abierto:",
+          badgePrimary: "PRINCIPAL",
+          fawazahmedDesc:
+            "API de código abierto que recopila datos diarios de fuentes financieras públicas. Proporciona más de 150 monedas y datos históricos desde 2020.",
+          badgeSecondary: "RESPALDO",
+          exchangerateDesc:
+            "Servicio de tasas en tiempo real con actualización horaria (plan gratuito).",
+          badgeHistorical: "HISTÓRICO",
+          frankfurterDesc:
+            "API pública del Banco Central Europeo con datos históricos para monedas principales.",
+          accuracyNote:
+            "<strong>⚠️ Importante:</strong> Las tasas de cambio pueden tener pequeñas variaciones respecto al mercado interbancario. No garantizamos la disponibilidad 24/7 de las APIs de terceros. La aplicación funciona en modo offline con datos cacheados, pero estos pueden no reflejar las tasas más recientes. No utilices esta aplicación para operaciones financieras en tiempo real o decisiones de inversión críticas.",
+          section5Title: "5. GRÁFICOS Y DATOS HISTÓRICOS",
+          section5Text:
+            "La aplicación incluye gráficos de evolución de 30 días generados a partir de datos históricos reales de Fawazahmed0 API. Estos gráficos:",
+          section5List: [
+            "Se actualizan diariamente con nuevas tasas",
+            "Almacenan caché local de 7 días para reducir consultas",
+            "Muestran tendencias basadas en datos reales, no simulaciones",
+            "Pueden no incluir todos los días si la fuente no tiene datos para fechas específicas",
+          ],
+          section6Title: "6. PUBLICIDAD",
+          section6Text:
+            "Cambiofy es una aplicación gratuita y se financia mediante publicidad de Google AdMob. Al usar la aplicación:",
+          section6List: [
+            "Google puede utilizar identificadores publicitarios anónimos para mostrar anuncios personalizados",
+            "No compartimos ningún dato personal tuyo con Google ni con anunciantes",
+            "Puedes optar por no recibir publicidad personalizada desde los ajustes de tu dispositivo Android: <em>Configuración → Google → Anuncios → Desactivar personalización de anuncios</em>",
+            'Para más información, consulta la <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidad de Google</a>',
+          ],
+          section7Title: "7. EXENCIÓN DE RESPONSABILIDAD",
+          section7Text:
+            'LA APLICACIÓN SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD", SIN GARANTÍAS DE NINGÚN TIPO, EXPRESAS O IMPLÍCITAS. EN PARTICULAR, NO GARANTIZAMOS QUE:',
+          section7List: [
+            "La aplicación sea ininterrumpida, oportuna, segura o libre de errores",
+            "Los resultados obtenidos del uso de la aplicación sean precisos o confiables",
+            "La calidad de cualquier producto, servicio o información obtenida a través de la aplicación satisfaga tus expectativas",
+          ],
+          section8Title: "8. LIMITACIÓN DE RESPONSABILIDAD",
+          section8Text:
+            "EN LA MÁXIMA MEDIDA PERMITIDA POR LA LEY APLICABLE, EN NINGÚN CASO CAMBIOFY SERÁ RESPONSABLE POR DAÑOS INDIRECTOS, INCIDENTALES, ESPECIALES, CONSECUENTES O PUNITIVOS, INCLUYENDO SIN LIMITACIÓN, PÉRDIDA DE BENEFICIOS, DATOS, USO, FONDO DE COMERCIO U OTRAS PÉRDIDAS INTANGIBLES.",
+          section9Title: "9. MODIFICACIONES DE LA APLICACIÓN",
+          section9Text:
+            "Nos reservamos el derecho de modificar, suspender o interrumpir temporal o permanentemente la aplicación (o cualquier parte de ella) con o sin previo aviso. No seremos responsables ante ti ni ante terceros por cualquier modificación, suspensión o interrupción de la aplicación.",
+          section10Title: "10. MODIFICACIONES DE LOS TÉRMINOS",
+          section10Text:
+            "Podemos revisar estos términos periódicamente. La versión más actualizada estará siempre disponible en esta URL. Si las modificaciones son sustanciales, te notificaremos a través de la aplicación o por correo electrónico. El uso continuado de la aplicación después de dichas modificaciones constituye tu aceptación de los nuevos términos.",
+          section11Title: "11. LEY APLICABLE Y JURISDICCIÓN",
+          section11Text:
+            "Estos términos se regirán e interpretarán de acuerdo con las leyes de España, sin dar efecto a sus principios de conflictos de leyes. Cualquier disputa que surja en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Madrid, España.",
+          section12Title: "12. CONTACTO Y SOPORTE",
+          contactIntro: "¿Preguntas? ¿Problemas? ¿Sugerencias?",
+          contactResponse: "📬 Respondemos en un máximo de 48 horas hábiles",
+          contactInfo:
+            "Incluye en tu correo: dispositivo, versión de Android y descripción detallada del problema",
+          section13Title: "13. DATOS DE CONTACTO ADICIONALES",
+          section13Text:
+            "Para asuntos legales o de privacidad, puedes contactarnos en:",
+          section13List: [
+            '<strong>Email general y soporte:</strong> <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>',
+          ],
+          section14Title: "14. DISPOSICIONES GENERALES",
+          section14Text:
+            "Si alguna disposición de estos términos se considera inválida o inaplicable, dicha disposición se eliminará y las disposiciones restantes permanecerán en pleno vigor y efecto. Estos términos constituyen el acuerdo completo entre tú y Cambiofy con respecto al uso de la aplicación.",
+          footerSources:
+            "Datos: Fawazahmed0 API • ExchangeRate-API • Frankfurter.app",
+        },
+        en: {
+          title: "Terms and Conditions",
+          badge: "⚖️ Cambiofy - Currency Converter",
+          lastUpdated: "<strong>📅 Last updated:</strong> March 11, 2026",
+          introText:
+            "Please read these terms and conditions carefully before using our application. By downloading, accessing, or using Cambiofy, you agree to be bound by these terms.",
+          section1Title: "1. ACCEPTANCE OF TERMS",
+          section1Text:
+            "These Terms and Conditions constitute a legally binding agreement between you (the user) and Cambiofy. By downloading, installing, or using the application, you confirm that you have read, understood, and agree to be bound by these terms. If you do not agree with any part of these terms, you may not use the application.",
+          section2Title: "2. LICENSE TO USE",
+          section2Text:
+            "We grant you a limited, non-exclusive, non-transferable, revocable, and personal license to:",
+          section2List: [
+            "Download and install the application on your personal devices",
+            "Use the application exclusively for personal, non-commercial purposes",
+            "Access currency conversion and historical chart features",
+          ],
+          section3Title: "3. INTELLECTUAL PROPERTY",
+          section3Text:
+            "All intellectual property rights in the application, including without limitation, source code, design, interface, logos, and trade names, are the exclusive property of Cambiofy or its licensors.",
+          section4Title: "4. DATA ACCURACY AND SOURCES",
+          section4Text:
+            "Cambiofy obtains exchange rates from the following public and open-source sources:",
+          badgePrimary: "PRIMARY",
+          fawazahmedDesc:
+            "Open-source API that collects daily data from public financial sources. Provides over 150 currencies and historical data since 2020.",
+          badgeSecondary: "BACKUP",
+          exchangerateDesc:
+            "Real-time exchange rate service with hourly updates (free plan).",
+          badgeHistorical: "HISTORICAL",
+          frankfurterDesc:
+            "Public API from the European Central Bank with historical data for major currencies.",
+          accuracyNote:
+            "<strong>⚠️ Important:</strong> Exchange rates may have small variations from the interbank market. We do not guarantee 24/7 availability of third-party APIs. The app works offline with cached data, but this may not reflect the most recent rates. Do not use this application for real-time financial operations or critical investment decisions.",
+          section5Title: "5. CHARTS AND HISTORICAL DATA",
+          section5Text:
+            "The application includes 30-day trend charts generated from real historical data from Fawazahmed0 API. These charts:",
+          section5List: [
+            "Update daily with new rates",
+            "Store 7-day local cache to reduce queries",
+            "Show trends based on real data, not simulations",
+            "May not include all days if the source lacks data for specific dates",
+          ],
+          section6Title: "6. ADVERTISING",
+          section6Text:
+            "Cambiofy is a free application and is funded by Google AdMob advertising. By using the application:",
+          section6List: [
+            "Google may use anonymous advertising identifiers to show personalized ads",
+            "We do not share any of your personal data with Google or advertisers",
+            "You can opt out of personalized advertising from your Android device settings: <em>Settings → Google → Ads → Disable ad personalization</em>",
+            'For more information, see the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>',
+          ],
+          section7Title: "7. DISCLAIMER",
+          section7Text:
+            'THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. IN PARTICULAR, WE DO NOT WARRANT THAT:',
+          section7List: [
+            "The application will be uninterrupted, timely, secure, or error-free",
+            "The results obtained from using the application will be accurate or reliable",
+            "The quality of any products, services, or information obtained through the application will meet your expectations",
+          ],
+          section8Title: "8. LIMITATION OF LIABILITY",
+          section8Text:
+            "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL CAMBIOFY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.",
+          section9Title: "9. MODIFICATIONS TO THE APPLICATION",
+          section9Text:
+            "We reserve the right to modify, suspend, or discontinue temporarily or permanently the application (or any part thereof) with or without notice. We shall not be liable to you or to any third party for any modification, suspension, or discontinuance of the application.",
+          section10Title: "10. MODIFICATIONS TO THE TERMS",
+          section10Text:
+            "We may revise these terms periodically. The most current version will always be available at this URL. If the modifications are material, we will notify you through the application or by email. Your continued use of the application after such modifications constitutes your acceptance of the new terms.",
+          section11Title: "11. GOVERNING LAW AND JURISDICTION",
+          section11Text:
+            "These terms shall be governed and construed in accordance with the laws of Spain, without giving effect to its conflict of laws principles. Any dispute arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts of Madrid, Spain.",
+          section12Title: "12. CONTACT AND SUPPORT",
+          contactIntro: "Questions? Problems? Suggestions?",
+          contactResponse:
+            "📬 We respond within a maximum of 48 business hours",
+          contactInfo:
+            "Include in your email: device, Android version, and detailed problem description",
+          section13Title: "13. ADDITIONAL CONTACT INFORMATION",
+          section13Text: "For legal or privacy matters, you can contact us at:",
+          section13List: [
+            '<strong>General email and support:</strong> <a href="mailto:support-app@cambiofy.com">support-app@cambiofy.com</a>',
+          ],
+          section14Title: "14. GENERAL PROVISIONS",
+          section14Text:
+            "If any provision of these terms is held to be invalid or unenforceable, such provision shall be struck and the remaining provisions shall remain in full force and effect. These terms constitute the entire agreement between you and Cambiofy regarding the use of the application.",
+          footerSources:
+            "Data: Fawazahmed0 API • ExchangeRate-API • Frankfurter.app",
+        },
+      };
+
+      function setLanguage(lang) {
+        document
+          .getElementById("btn-es")
+          .classList.toggle("active", lang === "es");
+        document
+          .getElementById("btn-en")
+          .classList.toggle("active", lang === "en");
+
+        const t = translations[lang];
+
+        document.getElementById("page-title").innerText = t.title;
+        document.getElementById("page-badge").innerText = t.badge;
+        document.getElementById("last-updated").innerHTML = t.lastUpdated;
+        document.getElementById("intro-text").innerHTML =
+          `<p style="margin-bottom: 0; font-weight: 500;">${t.introText}</p>`;
+
+        document.getElementById("section1-title").innerText = t.section1Title;
+        document.getElementById("section1-text").innerText = t.section1Text;
+        document.getElementById("section2-title").innerText = t.section2Title;
+        document.getElementById("section2-text").innerText = t.section2Text;
+
+        const section2List = document.getElementById("section2-list");
+        section2List.innerHTML = t.section2List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section3-title").innerText = t.section3Title;
+        document.getElementById("section3-text").innerText = t.section3Text;
+        document.getElementById("section4-title").innerText = t.section4Title;
+        document.getElementById("section4-text").innerText = t.section4Text;
+
+        document.getElementById("badge-primary").innerText = t.badgePrimary;
+        document.getElementById("fawazahmed-desc").innerText = t.fawazahmedDesc;
+        document.getElementById("badge-secondary").innerText = t.badgeSecondary;
+        document.getElementById("exchangerate-desc").innerText =
+          t.exchangerateDesc;
+        document.getElementById("badge-historical").innerText =
+          t.badgeHistorical;
+        document.getElementById("frankfurter-desc").innerText =
+          t.frankfurterDesc;
+        document.getElementById("accuracy-note").innerHTML = t.accuracyNote;
+
+        document.getElementById("section5-title").innerText = t.section5Title;
+        document.getElementById("section5-text").innerText = t.section5Text;
+
+        const section5List = document.getElementById("section5-list");
+        section5List.innerHTML = t.section5List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section6-title").innerText = t.section6Title;
+        document.getElementById("section6-text").innerText = t.section6Text;
+
+        const section6List = document.getElementById("section6-list");
+        section6List.innerHTML = t.section6List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section7-title").innerText = t.section7Title;
+        document.getElementById("section7-text").innerText = t.section7Text;
+
+        const section7List = document.getElementById("section7-list");
+        section7List.innerHTML = t.section7List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section8-title").innerText = t.section8Title;
+        document.getElementById("section8-text").innerText = t.section8Text;
+        document.getElementById("section9-title").innerText = t.section9Title;
+        document.getElementById("section9-text").innerText = t.section9Text;
+        document.getElementById("section10-title").innerText = t.section10Title;
+        document.getElementById("section10-text").innerText = t.section10Text;
+        document.getElementById("section11-title").innerText = t.section11Title;
+        document.getElementById("section11-text").innerText = t.section11Text;
+        document.getElementById("section12-title").innerText = t.section12Title;
+        document.getElementById("contact-intro").innerText = t.contactIntro;
+        document.getElementById("contact-response").innerText =
+          t.contactResponse;
+        document.getElementById("contact-info").innerText = t.contactInfo;
+        document.getElementById("section13-title").innerText = t.section13Title;
+        document.getElementById("section13-text").innerText = t.section13Text;
+
+        const section13List = document.getElementById("section13-list");
+        section13List.innerHTML = t.section13List
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+
+        document.getElementById("section14-title").innerText = t.section14Title;
+        document.getElementById("section14-text").innerText = t.section14Text;
+        document.getElementById("footer-sources").innerText = t.footerSources;
+      }
+    </script>
   </body>
 </html>
